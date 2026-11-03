@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marion L’Hermite · Biomedical Engineer</title>
+<meta name="description" content="Portfolio of Marion L’Hermite, biomedical engineer graduated from Télécom SudParis.">
+<link rel="icon" href="assets/letter-m.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Doto:wght@300..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============ base = phone ============
+   Titles keep the desktop ratios: 36 / 26 / 22 px × --k (0.75 on phones, 1 on desktop). */
+:root{--k:.75;--bg:#0F1B2D;--ink:#E6EDF5;--steel:#A5BCD6;--chrome:#E3E7EC;--pad:20px;--body:15px;--meta:13px}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);-webkit-text-size-adjust:100%}
+body{font-family:'IBM Plex Sans',sans-serif;overflow-x:hidden}
+body.lock{overflow:hidden}
+a{color:var(--steel)}
+a:hover{color:#fff}
+.ico{display:block;flex-shrink:0}
+[hidden]{display:none!important}
+.t2,.t3,.t4{margin:0;font-family:'IBM Plex Mono',monospace;font-weight:500}
+.t2{font-size:calc(36px*var(--k));line-height:1.15;letter-spacing:-.02em}
+.t3{font-size:calc(26px*var(--k));line-height:1.2;letter-spacing:-.02em}
+.t4{font-size:calc(22px*var(--k));line-height:1.3;letter-spacing:-.01em;color:var(--ink)}
+.t2,.t3{color:var(--chrome);text-shadow:-1px -1px 0 #8E949B,1px -1px 0 #8E949B,-1px 1px 0 #8E949B,1px 1px 0 #8E949B,0 0 18px rgba(165,188,214,.25)}
+p{margin:0;font-size:var(--body);line-height:1.6;color:var(--ink)}
+.meta{font-family:'DotGothic16',monospace;font-size:var(--meta);letter-spacing:.04em;color:var(--steel)}
+.col{width:100%;max-width:792px;margin:0 auto}
+
+/* header */
+header{position:sticky;top:0;z-index:20;display:flex;justify-content:center;align-items:center;padding:12px 12px 6px}
+.glass{background:linear-gradient(160deg,rgba(165,188,214,.16),rgba(165,188,214,.05));border:1px solid rgba(165,188,214,.28);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+nav{display:flex;align-items:center;gap:clamp(8px,3vw,18px);padding:3px 18px 3px 4px;border-radius:999px;max-width:100%}
+.navlinks{display:flex;align-items:center;gap:inherit}
+.led{font-family:'Doto',monospace;font-weight:600;text-decoration:none;color:var(--steel);font-size:15px;white-space:nowrap;padding:8px 0;transition:font-weight .9s cubic-bezier(.2,.8,.2,1),color .9s,text-shadow .9s}
+.led.on,.led:hover{font-weight:900;color:#fff;text-shadow:0 0 14px rgba(165,188,214,.7)}
+.homebtn{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;padding:0}
+.lang{display:flex;justify-content:flex-end;align-items:center;gap:2px;padding:4px var(--pad) 0}
+.chip{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:13px;background:none;border:0;padding:6px;min-height:40px;color:var(--steel);cursor:pointer}
+.chip:hover{color:#fff}
+.chip[aria-pressed="true"]{font-weight:700;color:#fff}
+.chip[aria-pressed="false"]{opacity:.75}
+
+/* language panes */
+.pane{display:none}
+.pane.show{display:block;animation:fade .7s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+
+/* hero */
+.about{display:flex;flex-direction:column;align-items:center;gap:40px;padding:28px var(--pad) 64px}
+.lockup{margin:0;font-weight:400;position:relative;display:block}
+.lockup-in{position:absolute;left:0;top:0;width:1px;height:1px;transform-origin:0 0;font-family:'DotGothic16',monospace;color:var(--chrome);text-shadow:-1px -1px 0 #8E949B,1px -1px 0 #8E949B,-1px 1px 0 #8E949B,1px 1px 0 #8E949B,0 0 18px rgba(165,188,214,.25)}
+.lockup .role{position:absolute;left:164px;top:0;font-size:26px;line-height:1;letter-spacing:1px;white-space:nowrap}
+.lockup .word{position:absolute;font-size:77px;line-height:1;white-space:nowrap}
+.lockup .w2{left:150px;top:171px}
+.lockup .glyph{position:absolute;filter:drop-shadow(1px 0 0 #8E949B) drop-shadow(-1px 0 0 #8E949B) drop-shadow(0 1px 0 #8E949B) drop-shadow(0 -1px 0 #8E949B)}
+.lockup .apos{position:absolute;left:-13.5px;top:9px;width:12.3px;height:14.7px}
+.about-row{width:100%;max-width:1120px;display:flex;align-items:center;gap:40px}
+.branch{display:none;width:124px;height:288px;flex-shrink:0}
+.branch.flip{transform:scaleX(-1)}
+.about-body{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+
+/* buttons */
+.metal{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(180deg,#F6F7F8 0%,#C9CED4 42%,#8E949B 50%,#B9BEC4 58%,#E9ECEF 100%);color:var(--bg);border:1px solid #F4F6F8;box-shadow:inset 0 1px 0 #fff,inset 0 -2px 3px rgba(15,27,45,.18),0 8px 22px rgba(15,27,45,.22);text-shadow:0 1px 0 rgba(255,255,255,.8);text-decoration:none;cursor:pointer;border-radius:999px;font-family:'IBM Plex Mono',monospace;font-weight:500;transition:transform .3s,box-shadow .3s,filter .3s}
+.metal:hover{color:var(--bg);transform:translateY(-2px);filter:brightness(1.08) contrast(1.05);box-shadow:inset 0 1px 0 #fff,0 0 0 1px #fff,0 14px 40px rgba(42,74,117,.28)}
+.metal:active{transform:translateY(0) scale(.98);box-shadow:inset 0 2px 5px rgba(15,27,45,.3),0 4px 10px rgba(15,27,45,.2)}
+.cta{padding:13px 24px 13px 18px;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase}
+.small{margin-top:6px;padding:11px 20px 11px 16px;font-size:12.5px;line-height:1.35;text-align:left}
+
+/* sections */
+.sec-head{display:flex;flex-direction:column;align-items:center;gap:20px;padding:16px var(--pad) 4px}
+section[id^="experience"] .sec-head{padding-top:44px}
+.orn{width:min(560px,82%);height:auto;aspect-ratio:1270/114}
+.block{padding:48px var(--pad) 60px;background-size:cover;background-position:center}
+.block>.col{display:flex;flex-direction:column;gap:24px}
+.bg-circuit{background-image:url(assets/bg-circuit.svg)}
+.bg-dna{background-image:url(assets/bg-dna.svg)}
+.bg-rajola{background-image:url(assets/bg-rajola.svg)}
+.bg-acropolis{background-image:url(assets/bg-acropolis.svg);background-position:center bottom}
+.hrow{display:flex;flex-direction:column;gap:7px}
+.hl{display:flex;flex-direction:column;gap:7px;min-width:0}
+.hl .t3{margin-bottom:2px}
+.loc{display:flex;align-items:center;gap:10px;color:var(--steel);margin-top:4px}
+.loc .ico{width:15px;height:auto}
+
+.card{border-radius:22px;padding:22px 20px;display:flex;flex-direction:column;gap:13px;align-items:flex-start;background:linear-gradient(160deg,rgba(165,188,214,.16),rgba(165,188,214,.05));border:1px solid rgba(165,188,214,.28);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:border-color .5s,box-shadow .5s}
+ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+li{display:flex;gap:12px;align-items:baseline;font-size:var(--body);line-height:1.55;color:var(--ink)}
+li b{font-weight:500}
+.bullet{width:6px;height:6px;border-radius:50%;background:var(--ink);flex-shrink:0;transform:translateY(-2px)}
+
+/* carousel */
+.carousel{display:flex;flex-direction:column;gap:14px}
+.stage{position:relative}
+.track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 calc(-1*var(--pad));padding:0 var(--pad)}
+.track::-webkit-scrollbar{display:none}
+.track.gliding{scroll-snap-type:none}
+.slide{flex:0 0 100%;scroll-snap-align:center;background:linear-gradient(160deg,#1F3150,#14233A)}
+.dots{display:flex;justify-content:center;gap:0}
+.dot{border:0;background:none;padding:0 4px;height:14px;display:flex;align-items:center;pointer-events:none}
+.dot span{display:block;height:6px;width:6px;border-radius:3px;background:#3A5277;transition:width .5s,background .5s}
+.dot.on span{width:22px;background:var(--ink)}
+.knob{display:none}
+.curr{align-self:flex-start;display:inline-flex;align-items:center;gap:9px;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:13px;padding:6px 0}
+
+/* footer */
+footer{display:flex;flex-direction:column;align-items:center;gap:16px;padding:32px var(--pad) 44px;border-top:1px solid #24395A;text-align:center}
+footer .orn{width:min(760px,92%)}
+.contact{display:flex;flex-direction:column;align-items:center;gap:6px}
+.contact .lbl{font-family:'DotGothic16',monospace;font-size:var(--meta);letter-spacing:.08em;color:var(--steel);text-transform:uppercase}
+.contact a{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:14px;color:var(--ink);text-decoration:none;border-bottom:1px solid rgba(165,188,214,.4);padding-bottom:2px;word-break:break-all}
+.contact a:hover{color:#fff;border-color:#fff}
+footer small{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--steel)}
+
+/* PDF viewer */
+.viewer{position:fixed;inset:0;z-index:50;background:rgba(5,10,20,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:12px}
+.viewer.open{display:flex;animation:fade .3s ease}
+.viewer .box{width:100%;max-width:1000px;height:100%;max-height:100%;border-radius:20px;display:flex;flex-direction:column;background:var(--bg);overflow:hidden}
+.viewer .bar .ico{display:none}
+.viewer .bar{display:flex;align-items:center;gap:10px;padding:10px 10px 10px 16px;border-bottom:1px solid #24395A;color:var(--ink)}
+.viewer .ttl{flex:1 1 auto;min-width:0;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vbtn{flex-shrink:0;min-width:40px;height:40px;border-radius:999px;border:1px solid rgba(165,188,214,.35);background:rgba(165,188,214,.08);color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:16px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 12px;cursor:pointer;text-decoration:none}
+.vbtn:hover{border-color:var(--steel);color:#fff}
+.vbtn.txt{font-size:12px}
+.viewer .pages{flex:1 1 auto;overflow:auto;-webkit-overflow-scrolling:touch;padding:12px;background:#0A1322}
+.viewer .pages canvas{display:block;margin:0 auto 12px;background:#fff;border-radius:4px;box-shadow:0 6px 24px rgba(0,0,0,.4)}
+.viewer .msg{color:#C3D3E5;font-size:14px;text-align:center;padding:40px 16px}
+.viewer iframe{width:100%;height:100%;border:0;background:#fff}
+
+/* ============ desktop ============ */
+@media (min-width:900px){
+  :root{--k:1;--pad:24px;--body:17px;--meta:17px}
+  header{padding:20px 24px 8px}
+  nav{gap:28px;padding:6px 28px 6px 10px}
+  .navlinks{gap:32px}
+  .led{font-size:22px;font-weight:500}
+  .homebtn{width:44px;height:44px}
+  .homebtn .ico{width:24px;height:24px}
+  .lang{position:fixed;top:26px;right:24px;z-index:21;padding:0}
+  .chip{font-size:16px;min-height:44px}
+  .about{gap:56px;padding:72px 24px 88px}
+  .branch{display:block}
+  .about-body{gap:24px}
+  .cta{padding:16px 32px 16px 24px;font-size:15px}
+  .small{padding:14px 28px 14px 22px;font-size:14px;margin-top:8px}
+  .sec-head{gap:28px;padding:24px 24px 8px}
+  section[id^="experience"] .sec-head{padding-top:64px}
+  .block{padding:72px 24px 88px}
+  .block>.col{gap:32px}
+  .hrow{flex-direction:row;justify-content:space-between;align-items:flex-end;gap:24px}
+  .hl{gap:10px}
+  .loc{flex-shrink:0;margin-top:0;gap:12px}
+  .loc .ico{width:22px}
+  .card{border-radius:28px;padding:36px 40px;gap:16px}
+  .card:hover{border-color:var(--steel);box-shadow:0 0 0 1px rgba(201,206,212,.5),0 20px 50px rgba(0,0,0,.35)}
+  ul{gap:12px}
+  li{gap:14px;line-height:1.6}
+  .bullet{width:7px;height:7px}
+  .track{margin:0;padding:0;border-radius:28px}
+  .dot{pointer-events:auto;cursor:pointer;width:44px;height:44px;justify-content:center;padding:0}
+  .dot span{height:8px;width:8px;border-radius:4px}
+  .dot.on span{width:28px}
+  .curr{font-size:14px;gap:10px}
+  .knob{display:flex;position:absolute;top:calc(50% - 28px);z-index:5;width:56px;height:56px;border-radius:50%;border:0;padding:0;cursor:pointer;align-items:center;justify-content:center;background:linear-gradient(150deg,#FFFFFF 0%,#D3D9E0 30%,#8E99A6 60%,#E9EDF1 100%);box-shadow:0 14px 26px rgba(15,27,45,.28),0 3px 5px rgba(15,27,45,.22),inset 0 1px 1px #fff,inset 0 -2px 3px rgba(15,27,45,.25);transition:transform .3s,box-shadow .3s,filter .3s}
+  .knob:hover{transform:translateY(-2px);filter:brightness(1.08) contrast(1.05)}
+  .knob:active{transform:scale(.97)}
+  .kprev{left:-28px}.knext{right:-28px}
+  .face{width:80%;height:80%;border-radius:50%;background:conic-gradient(from 20deg,#F5F7F9,#BCC4CD 9%,#FFFFFF 18%,#A9B2BC 29%,#EEF1F4 40%,#B5BDC6 52%,#FFFFFF 63%,#A8B1BB 75%,#E9ECF0 88%,#F5F7F9);box-shadow:inset 0 3px 5px rgba(15,27,45,.35),inset 0 -2px 2px rgba(255,255,255,.9),0 0 0 1px rgba(15,27,45,.18);display:flex;align-items:center;justify-content:center}
+  .tri{width:34%;height:38%;margin-left:8%;background:linear-gradient(135deg,#8E949B,#3A3F46 60%,#24282E);clip-path:polygon(0 0,100% 50%,0 100%)}
+  .tri.left{margin-left:0;margin-right:8%;clip-path:polygon(100% 0,0 50%,100% 100%)}
+  footer{padding:40px 24px 56px;gap:20px}
+  .contact a{font-size:16px}
+  footer small{font-size:13px}
+  .viewer{padding:32px}
+  .viewer .bar .ico{display:block}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="top"></div>
+<header>
+  <nav class="glass" aria-label="Main">
+    <a href="#top" class="led homebtn" data-go="top" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 11 11" width="22" height="22.0" fill="currentColor" class="ico"><circle cx="5.5" cy="0.5" r=".42"/><circle cx="4.5" cy="1.5" r=".42"/><circle cx="5.5" cy="1.5" r=".42"/><circle cx="6.5" cy="1.5" r=".42"/><circle cx="3.5" cy="2.5" r=".42"/><circle cx="4.5" cy="2.5" r=".42"/><circle cx="6.5" cy="2.5" r=".42"/><circle cx="7.5" cy="2.5" r=".42"/><circle cx="2.5" cy="3.5" r=".42"/><circle cx="3.5" cy="3.5" r=".42"/><circle cx="7.5" cy="3.5" r=".42"/><circle cx="8.5" cy="3.5" r=".42"/><circle cx="1.5" cy="4.5" r=".42"/><circle cx="2.5" cy="4.5" r=".42"/><circle cx="8.5" cy="4.5" r=".42"/><circle cx="9.5" cy="4.5" r=".42"/><circle cx="0.5" cy="5.5" r=".42"/><circle cx="1.5" cy="5.5" r=".42"/><circle cx="2.5" cy="5.5" r=".42"/><circle cx="3.5" cy="5.5" r=".42"/><circle cx="4.5" cy="5.5" r=".42"/><circle cx="5.5" cy="5.5" r=".42"/><circle cx="6.5" cy="5.5" r=".42"/><circle cx="7.5" cy="5.5" r=".42"/><circle cx="8.5" cy="5.5" r=".42"/><circle cx="9.5" cy="5.5" r=".42"/><circle cx="10.5" cy="5.5" r=".42"/><circle cx="1.5" cy="6.5" r=".42"/><circle cx="9.5" cy="6.5" r=".42"/><circle cx="1.5" cy="7.5" r=".42"/><circle cx="4.5" cy="7.5" r=".42"/><circle cx="5.5" cy="7.5" r=".42"/><circle cx="6.5" cy="7.5" r=".42"/><circle cx="9.5" cy="7.5" r=".42"/><circle cx="1.5" cy="8.5" r=".42"/><circle cx="4.5" cy="8.5" r=".42"/><circle cx="6.5" cy="8.5" r=".42"/><circle cx="9.5" cy="8.5" r=".42"/><circle cx="1.5" cy="9.5" r=".42"/><circle cx="4.5" cy="9.5" r=".42"/><circle cx="6.5" cy="9.5" r=".42"/><circle cx="9.5" cy="9.5" r=".42"/><circle cx="1.5" cy="10.5" r=".42"/><circle cx="2.5" cy="10.5" r=".42"/><circle cx="3.5" cy="10.5" r=".42"/><circle cx="4.5" cy="10.5" r=".42"/><circle cx="5.5" cy="10.5" r=".42"/><circle cx="6.5" cy="10.5" r=".42"/><circle cx="7.5" cy="10.5" r=".42"/><circle cx="8.5" cy="10.5" r=".42"/><circle cx="9.5" cy="10.5" r=".42"/></svg></a>
+    <div class="navlinks">
+      <a href="#about" class="led" data-go="about">About</a>
+      <a href="#formation" class="led" data-go="formation">Formation</a>
+      <a href="#experience" class="led" data-go="experience">Experience</a>
+    </div>
+  </nav>
+</header>
+<div class="lang">
+  <button class="chip" data-set="fr" lang="fr" aria-pressed="false">FR</button>
+  <span aria-hidden="true" style="color:#A5BCD6">|</span>
+  <button class="chip" data-set="en" lang="en" aria-pressed="true">ENG</button>
+</div>
+
+<main>
+
+<div class="pane" lang="en" data-lang="en">
+<section id="about-en" class="about">
+  <h1 class="lockup" aria-label="Marion L’Hermite, Biomedical Engineer">
+    <span class="lockup-in" aria-hidden="true">
+      <span class="role">BIOMEDICAL ENGINEER</span>
+      <img class="glyph" src="assets/letter-m.svg" alt="" style="left:5px;top:39.5px;width:150px;height:110.5px">
+      <span class="word w1" style="left:112.5px;top:55px">ARION</span>
+      <span class="word w2"><img class="glyph" src="assets/letter-l.svg" alt="" style="left:-82px;top:-18px;width:132.5px;height:105.5px"><img class="apos" src="assets/apostrophe.svg" alt="">HERMITE</span>
+    </span>
+  </h1>
+  <div class="about-row">
+    <img class="branch" src="assets/branch.svg" alt="">
+    <div class="about-body">
+      <h2 class="t2">About me</h2>
+      <p>Biomedical engineer graduated from Télécom SudParis, passionate about technology in the service of medicine.</p>
+      <a href="files/Resume_Marion_L_Hermite.pdf" class="metal cta" target="_blank" rel="noopener" download><svg aria-hidden="true" viewBox="0 0 11 11" width="18" height="18.0" fill="currentColor" class="ico"><circle cx="4.5" cy="0.5" r=".42"/><circle cx="5.5" cy="0.5" r=".42"/><circle cx="6.5" cy="0.5" r=".42"/><circle cx="4.5" cy="1.5" r=".42"/><circle cx="5.5" cy="1.5" r=".42"/><circle cx="6.5" cy="1.5" r=".42"/><circle cx="4.5" cy="2.5" r=".42"/><circle cx="5.5" cy="2.5" r=".42"/><circle cx="6.5" cy="2.5" r=".42"/><circle cx="4.5" cy="3.5" r=".42"/><circle cx="5.5" cy="3.5" r=".42"/><circle cx="6.5" cy="3.5" r=".42"/><circle cx="1.5" cy="4.5" r=".42"/><circle cx="2.5" cy="4.5" r=".42"/><circle cx="3.5" cy="4.5" r=".42"/><circle cx="4.5" cy="4.5" r=".42"/><circle cx="5.5" cy="4.5" r=".42"/><circle cx="6.5" cy="4.5" r=".42"/><circle cx="7.5" cy="4.5" r=".42"/><circle cx="8.5" cy="4.5" r=".42"/><circle cx="9.5" cy="4.5" r=".42"/><circle cx="2.5" cy="5.5" r=".42"/><circle cx="3.5" cy="5.5" r=".42"/><circle cx="4.5" cy="5.5" r=".42"/><circle cx="5.5" cy="5.5" r=".42"/><circle cx="6.5" cy="5.5" r=".42"/><circle cx="7.5" cy="5.5" r=".42"/><circle cx="8.5" cy="5.5" r=".42"/><circle cx="3.5" cy="6.5" r=".42"/><circle cx="4.5" cy="6.5" r=".42"/><circle cx="5.5" cy="6.5" r=".42"/><circle cx="6.5" cy="6.5" r=".42"/><circle cx="7.5" cy="6.5" r=".42"/><circle cx="4.5" cy="7.5" r=".42"/><circle cx="5.5" cy="7.5" r=".42"/><circle cx="6.5" cy="7.5" r=".42"/><circle cx="5.5" cy="8.5" r=".42"/><circle cx="0.5" cy="10.5" r=".42"/><circle cx="1.5" cy="10.5" r=".42"/><circle cx="2.5" cy="10.5" r=".42"/><circle cx="3.5" cy="10.5" r=".42"/><circle cx="4.5" cy="10.5" r=".42"/><circle cx="5.5" cy="10.5" r=".42"/><circle cx="6.5" cy="10.5" r=".42"/><circle cx="7.5" cy="10.5" r=".42"/><circle cx="8.5" cy="10.5" r=".42"/><circle cx="9.5" cy="10.5" r=".42"/><circle cx="10.5" cy="10.5" r=".42"/></svg><span>Download my resume</span></a>
+    </div>
+    <img class="branch flip" src="assets/branch.svg" alt="">
+  </div>
+</section>
+
+<section id="formation-en">
+  <div class="sec-head"><img class="orn" src="assets/ornament.svg" alt=""><div class="col"><h2 class="t2">Formation</h2></div></div>
+  <div class="block bg-circuit"><div class="col">
+    <div class="hrow"><div class="hl"><h3 class="t3">Telecom SudParis</h3><span class="meta">Generalist engineering school</span><span class="meta">SEPTEMBER 2023 - JUNE 2026</span></div><div class="loc"><svg aria-hidden="true" viewBox="0 0 9 11" width="18" height="22.0" fill="currentColor" class="ico"><circle cx="2.5" cy="0.5" r=".42"/><circle cx="3.5" cy="0.5" r=".42"/><circle cx="4.5" cy="0.5" r=".42"/><circle cx="5.5" cy="0.5" r=".42"/><circle cx="6.5" cy="0.5" r=".42"/><circle cx="1.5" cy="1.5" r=".42"/><circle cx="2.5" cy="1.5" r=".42"/><circle cx="6.5" cy="1.5" r=".42"/><circle cx="7.5" cy="1.5" r=".42"/><circle cx="0.5" cy="2.5" r=".42"/><circle cx="1.5" cy="2.5" r=".42"/><circle cx="7.5" cy="2.5" r=".42"/><circle cx="8.5" cy="2.5" r=".42"/><circle cx="0.5" cy="3.5" r=".42"/><circle cx="4.5" cy="3.5" r=".42"/><circle cx="8.5" cy="3.5" r=".42"/><circle cx="0.5" cy="4.5" r=".42"/><circle cx="3.5" cy="4.5" r=".42"/><circle cx="4.5" cy="4.5" r=".42"/><circle cx="5.5" cy="4.5" r=".42"/><circle cx="8.5" cy="4.5" r=".42"/><circle cx="0.5" cy="5.5" r=".42"/><circle cx="4.5" cy="5.5" r=".42"/><circle cx="8.5" cy="5.5" r=".42"/><circle cx="0.5" cy="6.5" r=".42"/><circle cx="1.5" cy="6.5" r=".42"/><circle cx="7.5" cy="6.5" r=".42"/><circle cx="8.5" cy="6.5" r=".42"/><circle cx="1.5" cy="7.5" r=".42"/><circle cx="2.5" cy="7.5" r=".42"/><circle cx="6.5" cy="7.5" r=".42"/><circle cx="7.5" cy="7.5" r=".42"/><circle cx="2.5" cy="8.5" r=".42"/><circle cx="3.5" cy="8.5" r=".42"/><circle cx="5.5" cy="8.5" r=".42"/><circle cx="6.5" cy="8.5" r=".42"/><circle cx="3.5" cy="9.5" r=".42"/><circle cx="4.5" cy="9.5" r=".42"/><circle cx="5.5" cy="9.5" r=".42"/><circle cx="4.5" cy="10.5" r=".42"/></svg><span class="meta">Évry-Courcouronnes, France</span></div></div>
+    <div class="carousel" role="region" aria-label="Telecom SudParis"><div class="stage"><div class="track"><article class="card slide"><h4 class="t4">Imaging &amp; Computer Vision</h4><ul><li><span class="bullet" aria-hidden="true"></span><span><b>Multimedia acquisition and representation</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Image analysis</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Computer vision</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Deep learning</b></span></li></ul></article><article class="card slide"><h4 class="t4">Signal Processing &amp; Communications</h4><ul><li><span class="bullet" aria-hidden="true"></span><span><b>Signal theory</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Digital signal processing</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Communication theory</b></span></li></ul></article><article class="card slide"><h4 class="t4">Physics &amp; Electronics</h4><ul><li><span class="bullet" aria-hidden="true"></span><span><b>Fundamental electronic functions</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Microwave systems</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Fiber-optic communications</b></span></li></ul></article><article class="card slide"><h4 class="t4">Computer Science</h4><ul><li><span class="bullet" aria-hidden="true"></span><span><b>Object-oriented programming (Java)</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Software development</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Systems programming (Bash, C)</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Databases and information systems</b></span></li></ul></article><article class="card slide"><h4 class="t4">Scientific Computing</h4><ul><li><span class="bullet" aria-hidden="true"></span><span><b>Probability and statistics</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Data analysis</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Optimisation</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Numerical methods</b></span></li></ul></article></div><button class="knob kprev" aria-label="Previous" data-step="-1"><span class="face"><span class="tri left"></span></span></button><button class="knob knext" aria-label="Next" data-step="1"><span class="face"><span class="tri"></span></span></button></div><div class="dots"><button class="dot on" data-i="0" aria-label="Show Imaging &amp; Computer Vision"><span></span></button><button class="dot" data-i="1" aria-label="Show Signal Processing &amp; Communications"><span></span></button><button class="dot" data-i="2" aria-label="Show Physics &amp; Electronics"><span></span></button><button class="dot" data-i="3" aria-label="Show Computer Science"><span></span></button><button class="dot" data-i="4" aria-label="Show Scientific Computing"><span></span></button></div></div>
+    <a class="curr" href="https://www.calameo.com/read/00532543083ee02ca0237" target="_blank" rel="noopener"><span>See the full curriculum</span><svg aria-hidden="true" viewBox="0 0 8 8" width="12" height="12.0" fill="currentColor" class="ico"><circle cx="3.5" cy="0.5" r=".42"/><circle cx="4.5" cy="0.5" r=".42"/><circle cx="5.5" cy="0.5" r=".42"/><circle cx="6.5" cy="0.5" r=".42"/><circle cx="7.5" cy="0.5" r=".42"/><circle cx="5.5" cy="1.5" r=".42"/><circle cx="6.5" cy="1.5" r=".42"/><circle cx="7.5" cy="1.5" r=".42"/><circle cx="4.5" cy="2.5" r=".42"/><circle cx="5.5" cy="2.5" r=".42"/><circle cx="6.5" cy="2.5" r=".42"/><circle cx="7.5" cy="2.5" r=".42"/><circle cx="3.5" cy="3.5" r=".42"/><circle cx="4.5" cy="3.5" r=".42"/><circle cx="5.5" cy="3.5" r=".42"/><circle cx="7.5" cy="3.5" r=".42"/><circle cx="2.5" cy="4.5" r=".42"/><circle cx="3.5" cy="4.5" r=".42"/><circle cx="4.5" cy="4.5" r=".42"/><circle cx="1.5" cy="5.5" r=".42"/><circle cx="2.5" cy="5.5" r=".42"/><circle cx="3.5" cy="5.5" r=".42"/><circle cx="0.5" cy="6.5" r=".42"/><circle cx="1.5" cy="6.5" r=".42"/><circle cx="2.5" cy="6.5" r=".42"/><circle cx="1.5" cy="7.5" r=".42"/></svg></a>
+  </div></div>
+  <div class="block bg-acropolis"><div class="col">
+    <div class="hrow"><div class="hl"><h3 class="t3">National Technical University of Athens</h3><span class="meta">Erasmus exchange</span><span class="meta">SEPTEMBER 2025 - FEBRUARY 2026</span></div><div class="loc"><svg aria-hidden="true" viewBox="0 0 9 11" width="18" height="22.0" fill="currentColor" class="ico"><circle cx="2.5" cy="0.5" r=".42"/><circle cx="3.5" cy="0.5" r=".42"/><circle cx="4.5" cy="0.5" r=".42"/><circle cx="5.5" cy="0.5" r=".42"/><circle cx="6.5" cy="0.5" r=".42"/><circle cx="1.5" cy="1.5" r=".42"/><circle cx="2.5" cy="1.5" r=".42"/><circle cx="6.5" cy="1.5" r=".42"/><circle cx="7.5" cy="1.5" r=".42"/><circle cx="0.5" cy="2.5" r=".42"/><circle cx="1.5" cy="2.5" r=".42"/><circle cx="7.5" cy="2.5" r=".42"/><circle cx="8.5" cy="2.5" r=".42"/><circle cx="0.5" cy="3.5" r=".42"/><circle cx="4.5" cy="3.5" r=".42"/><circle cx="8.5" cy="3.5" r=".42"/><circle cx="0.5" cy="4.5" r=".42"/><circle cx="3.5" cy="4.5" r=".42"/><circle cx="4.5" cy="4.5" r=".42"/><circle cx="5.5" cy="4.5" r=".42"/><circle cx="8.5" cy="4.5" r=".42"/><circle cx="0.5" cy="5.5" r=".42"/><circle cx="4.5" cy="5.5" r=".42"/><circle cx="8.5" cy="5.5" r=".42"/><circle cx="0.5" cy="6.5" r=".42"/><circle cx="1.5" cy="6.5" r=".42"/><circle cx="7.5" cy="6.5" r=".42"/><circle cx="8.5" cy="6.5" r=".42"/><circle cx="1.5" cy="7.5" r=".42"/><circle cx="2.5" cy="7.5" r=".42"/><circle cx="6.5" cy="7.5" r=".42"/><circle cx="7.5" cy="7.5" r=".42"/><circle cx="2.5" cy="8.5" r=".42"/><circle cx="3.5" cy="8.5" r=".42"/><circle cx="5.5" cy="8.5" r=".42"/><circle cx="6.5" cy="8.5" r=".42"/><circle cx="3.5" cy="9.5" r=".42"/><circle cx="4.5" cy="9.5" r=".42"/><circle cx="5.5" cy="9.5" r=".42"/><circle cx="4.5" cy="10.5" r=".42"/></svg><span class="meta">Athens, Greece</span></div></div>
+    <div class="carousel" role="region" aria-label="National Technical University of Athens"><div class="stage"><div class="track"><article class="card slide"><ul><li><span class="bullet" aria-hidden="true"></span><span><b>Life Sciences for Engineering</b>: anatomy, physiology and histology, taught by physicians at the Athens Medical School.</span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Biostatistics and Machine Learning</b>: fundamentals of biostatistics and their application to medical data.</span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Biosignal Acquisition and Processing</b>: biosignal acquisition techniques and, during a group project, processing of electroencephalography (EEG) signals to distinguish voluntary leg movements from resting states triggered by visual cues.</span></li></ul></article><article class="card slide"><ul><li><span class="bullet" aria-hidden="true"></span><span><b>Research Methodology</b>: critical reading of scientific articles, study design, and writing a review article.</span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Biomechanics</b>: modelling and analysis of a femur stabilised with plate and nail fixation systems.</span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Biodesign Fundamentals</b>: entrepreneurship course focused on building deep-tech ventures.</span></li></ul></article></div><button class="knob kprev" aria-label="Previous" data-step="-1"><span class="face"><span class="tri left"></span></span></button><button class="knob knext" aria-label="Next" data-step="1"><span class="face"><span class="tri"></span></span></button></div><div class="dots"><button class="dot on" data-i="0" aria-label="Show 1"><span></span></button><button class="dot" data-i="1" aria-label="Show 2"><span></span></button></div></div>
+    <a class="curr" href="https://masterteam.ntua.gr/" target="_blank" rel="noopener"><span>See the full curriculum</span><svg aria-hidden="true" viewBox="0 0 8 8" width="12" height="12.0" fill="currentColor" class="ico"><circle cx="3.5" cy="0.5" r=".42"/><circle cx="4.5" cy="0.5" r=".42"/><circle cx="5.5" cy="0.5" r=".42"/><circle cx="6.5" cy="0.5" r=".42"/><circle cx="7.5" cy="0.5" r=".42"/><circle cx="5.5" cy="1.5" r=".42"/><circle cx="6.5" cy="1.5" r=".42"/><circle cx="7.5" cy="1.5" r=".42"/><circle cx="4.5" cy="2.5" r=".42"/><circle cx="5.5" cy="2.5" r=".42"/><circle cx="6.5" cy="2.5" r=".42"/><circle cx="7.5" cy="2.5" r=".42"/><circle cx="3.5" cy="3.5" r=".42"/><circle cx="4.5" cy="3.5" r=".42"/><circle cx="5.5" cy="3.5" r=".42"/><circle cx="7.5" cy="3.5" r=".42"/><circle cx="2.5" cy="4.5" r=".42"/><circle cx="3.5" cy="4.5" r=".42"/><circle cx="4.5" cy="4.5" r=".42"/><circle cx="1.5" cy="5.5" r=".42"/><circle cx="2.5" cy="5.5" r=".42"/><circle cx="3.5" cy="5.5" r=".42"/><circle cx="0.5" cy="6.5" r=".42"/><circle cx="1.5" cy="6.5" r=".42"/><circle cx="2.5" cy="6.5" r=".42"/><circle cx="1.5" cy="7.5" r=".42"/></svg></a>
+  </div></div>
+</section>
+
+<section id="experience-en">
+  <div class="sec-head"><img class="orn" src="assets/ornament.svg" alt=""><div class="col"><h2 class="t2">Experience</h2></div></div>
+  <div class="block bg-rajola"><div class="col">
+    <div class="hrow"><div class="hl"><h3 class="t3">Flomics Biotech</h3><span class="meta">End-of-studies internship</span><span class="meta">MAY 2026 - OCTOBER 2026</span></div><div class="loc"><svg aria-hidden="true" viewBox="0 0 9 11" width="18" height="22.0" fill="currentColor" class="ico"><circle cx="2.5" cy="0.5" r=".42"/><circle cx="3.5" cy="0.5" r=".42"/><circle cx="4.5" cy="0.5" r=".42"/><circle cx="5.5" cy="0.5" r=".42"/><circle cx="6.5" cy="0.5" r=".42"/><circle cx="1.5" cy="1.5" r=".42"/><circle cx="2.5" cy="1.5" r=".42"/><circle cx="6.5" cy="1.5" r=".42"/><circle cx="7.5" cy="1.5" r=".42"/><circle cx="0.5" cy="2.5" r=".42"/><circle cx="1.5" cy="2.5" r=".42"/><circle cx="7.5" cy="2.5" r=".42"/><circle cx="8.5" cy="2.5" r=".42"/><circle cx="0.5" cy="3.5" r=".42"/><circle cx="4.5" cy="3.5" r=".42"/><circle cx="8.5" cy="3.5" r=".42"/><circle cx="0.5" cy="4.5" r=".42"/><circle cx="3.5" cy="4.5" r=".42"/><circle cx="4.5" cy="4.5" r=".42"/><circle cx="5.5" cy="4.5" r=".42"/><circle cx="8.5" cy="4.5" r=".42"/><circle cx="0.5" cy="5.5" r=".42"/><circle cx="4.5" cy="5.5" r=".42"/><circle cx="8.5" cy="5.5" r=".42"/><circle cx="0.5" cy="6.5" r=".42"/><circle cx="1.5" cy="6.5" r=".42"/><circle cx="7.5" cy="6.5" r=".42"/><circle cx="8.5" cy="6.5" r=".42"/><circle cx="1.5" cy="7.5" r=".42"/><circle cx="2.5" cy="7.5" r=".42"/><circle cx="6.5" cy="7.5" r=".42"/><circle cx="7.5" cy="7.5" r=".42"/><circle cx="2.5" cy="8.5" r=".42"/><circle cx="3.5" cy="8.5" r=".42"/><circle cx="5.5" cy="8.5" r=".42"/><circle cx="6.5" cy="8.5" r=".42"/><circle cx="3.5" cy="9.5" r=".42"/><circle cx="4.5" cy="9.5" r=".42"/><circle cx="5.5" cy="9.5" r=".42"/><circle cx="4.5" cy="10.5" r=".42"/></svg><span class="meta">Barcelona, Spain</span></div></div>
+    <div class="card"><h4 class="t4">Bioinformatics Data Scientist Intern</h4><p>Flomics develops liquid-biopsy solutions based on cell-free RNA. During my end-of-studies internship, I worked with gene expression data and developed machine-learning models to predict biological age from cell-free RNA.</p><ul><li><span class="bullet" aria-hidden="true"></span><span>Developed bioinformatics and machine learning pipelines for cfRNA-seq analysis and the prediction of biological age from high-dimensional transcriptomic data.</span></li><li><span class="bullet" aria-hidden="true"></span><span>Processed and analyzed transcriptomic datasets using Python and R, including data preprocessing, quality control, normalization, statistical analysis, and feature selection.</span></li><li><span class="bullet" aria-hidden="true"></span><span>Evaluated regression and tree-based machine learning models.</span></li><li><span class="bullet" aria-hidden="true"></span><span>Developed biology-driven feature engineering strategies based on gene co-expression and biological pathways to reduce dimensionality and improve model robustness and interpretability.</span></li></ul>
+      <button class="metal small slides-btn" data-title="Flomics: internship slides" hidden><svg aria-hidden="true" viewBox="0 0 9 11" width="16" height="19.6" fill="currentColor" class="ico"><circle cx="0.5" cy="0.5" r=".42"/><circle cx="1.5" cy="0.5" r=".42"/><circle cx="2.5" cy="0.5" r=".42"/><circle cx="3.5" cy="0.5" r=".42"/><circle cx="4.5" cy="0.5" r=".42"/><circle cx="5.5" cy="0.5" r=".42"/><circle cx="0.5" cy="1.5" r=".42"/><circle cx="5.5" cy="1.5" r=".42"/><circle cx="6.5" cy="1.5" r=".42"/><circle cx="0.5" cy="2.5" r=".42"/><circle cx="5.5" cy="2.5" r=".42"/><circle cx="6.5" cy="2.5" r=".42"/><circle cx="7.5" cy="2.5" r=".42"/><circle cx="0.5" cy="3.5" r=".42"/><circle cx="8.5" cy="3.5" r=".42"/><circle cx="0.5" cy="4.5" r=".42"/><circle cx="2.5" cy="4.5" r=".42"/><circle cx="3.5" cy="4.5" r=".42"/><circle cx="4.5" cy="4.5" r=".42"/><circle cx="5.5" cy="4.5" r=".42"/><circle cx="6.5" cy="4.5" r=".42"/><circle cx="8.5" cy="4.5" r=".42"/><circle cx="0.5" cy="5.5" r=".42"/><circle cx="8.5" cy="5.5" r=".42"/><circle cx="0.5" cy="6.5" r=".42"/><circle cx="2.5" cy="6.5" r=".42"/><circle cx="3.5" cy="6.5" r=".42"/><circle cx="4.5" cy="6.5" r=".42"/><circle cx="5.5" cy="6.5" r=".42"/><circle cx="6.5" cy="6.5" r=".42"/><circle cx="8.5" cy="6.5" r=".42"/><circle cx="0.5" cy="7.5" r=".42"/><circle cx="8.5" cy="7.5" r=".42"/><circle cx="0.5" cy="8.5" r=".42"/><circle cx="2.5" cy="8.5" r=".42"/><circle cx="3.5" cy="8.5" r=".42"/><circle cx="4.5" cy="8.5" r=".42"/><circle cx="5.5" cy="8.5" r=".42"/><circle cx="8.5" cy="8.5" r=".42"/><circle cx="0.5" cy="9.5" r=".42"/><circle cx="8.5" cy="9.5" r=".42"/><circle cx="0.5" cy="10.5" r=".42"/><circle cx="1.5" cy="10.5" r=".42"/><circle cx="2.5" cy="10.5" r=".42"/><circle cx="3.5" cy="10.5" r=".42"/><circle cx="4.5" cy="10.5" r=".42"/><circle cx="5.5" cy="10.5" r=".42"/><circle cx="6.5" cy="10.5" r=".42"/><circle cx="7.5" cy="10.5" r=".42"/><circle cx="8.5" cy="10.5" r=".42"/></svg><span>Detailed slides about my internship</span></button></div>
+  </div></div>
+  <div class="block bg-dna"><div class="col">
+    <div class="hrow"><div class="hl"><h3 class="t3">Genoscope (CEA)</h3><span class="meta">Academic project with an external laboratory</span><span class="meta">DECEMBER 2024 - MAY 2025</span></div></div>
+    <div class="card"><h4 class="t4">Bioinformatics Research Contributor</h4><p>Over several months, I collaborated with the research team at Genoscope, the CEA’s genomic sequencing centre, on the LAGE project, which studies the diversity of marine eukaryotes worldwide. My team and I took on one of their operational needs: automating the step that turns assembled contigs into genomes. I implemented an automated workflow that groups contigs into Metagenome-Assembled Genomes (MAGs), using Answer Set Programming rules combined with optimisation criteria.</p>
+      <button class="metal small" data-pdf="files/Poster_automating_environmental_genome_clustering.pdf" data-title="Genoscope: project poster"><svg aria-hidden="true" viewBox="0 0 9 11" width="16" height="19.6" fill="currentColor" class="ico"><circle cx="0.5" cy="0.5" r=".42"/><circle cx="1.5" cy="0.5" r=".42"/><circle cx="2.5" cy="0.5" r=".42"/><circle cx="3.5" cy="0.5" r=".42"/><circle cx="4.5" cy="0.5" r=".42"/><circle cx="5.5" cy="0.5" r=".42"/><circle cx="0.5" cy="1.5" r=".42"/><circle cx="5.5" cy="1.5" r=".42"/><circle cx="6.5" cy="1.5" r=".42"/><circle cx="0.5" cy="2.5" r=".42"/><circle cx="5.5" cy="2.5" r=".42"/><circle cx="6.5" cy="2.5" r=".42"/><circle cx="7.5" cy="2.5" r=".42"/><circle cx="0.5" cy="3.5" r=".42"/><circle cx="8.5" cy="3.5" r=".42"/><circle cx="0.5" cy="4.5" r=".42"/><circle cx="2.5" cy="4.5" r=".42"/><circle cx="3.5" cy="4.5" r=".42"/><circle cx="4.5" cy="4.5" r=".42"/><circle cx="5.5" cy="4.5" r=".42"/><circle cx="6.5" cy="4.5" r=".42"/><circle cx="8.5" cy="4.5" r=".42"/><circle cx="0.5" cy="5.5" r=".42"/><circle cx="8.5" cy="5.5" r=".42"/><circle cx="0.5" cy="6.5" r=".42"/><circle cx="2.5" cy="6.5" r=".42"/><circle cx="3.5" cy="6.5" r=".42"/><circle cx="4.5" cy="6.5" r=".42"/><circle cx="5.5" cy="6.5" r=".42"/><circle cx="6.5" cy="6.5" r=".42"/><circle cx="8.5" cy="6.5" r=".42"/><circle cx="0.5" cy="7.5" r=".42"/><circle cx="8.5" cy="7.5" r=".42"/><circle cx="0.5" cy="8.5" r=".42"/><circle cx="2.5" cy="8.5" r=".42"/><circle cx="3.5" cy="8.5" r=".42"/><circle cx="4.5" cy="8.5" r=".42"/><circle cx="5.5" cy="8.5" r=".42"/><circle cx="8.5" cy="8.5" r=".42"/><circle cx="0.5" cy="9.5" r=".42"/><circle cx="8.5" cy="9.5" r=".42"/><circle cx="0.5" cy="10.5" r=".42"/><circle cx="1.5" cy="10.5" r=".42"/><circle cx="2.5" cy="10.5" r=".42"/><circle cx="3.5" cy="10.5" r=".42"/><circle cx="4.5" cy="10.5" r=".42"/><circle cx="5.5" cy="10.5" r=".42"/><circle cx="6.5" cy="10.5" r=".42"/><circle cx="7.5" cy="10.5" r=".42"/><circle cx="8.5" cy="10.5" r=".42"/></svg><span>Project poster</span></button></div>
+  </div></div>
+  <div class="block"><div class="col">
+    <div class="hrow"><div class="hl"><h3 class="t3">ENSTA Paris × IMT Starter</h3><span class="meta">Summer programme</span><span class="meta">JUNE 2026 - JULY 2026</span></div></div>
+    <div class="card"><h4 class="t4">Innovation &amp; Software Development Intern</h4><p>Hosted by the IMT Starter incubator, I joined a team of researchers seeking to turn a medical device into a start-up: an optical-fibre pressure-sensing patch (Fibre Bragg Grating sensors) paired with a real-time visualisation interface for prosthetic applications.</p><ul><li><span class="bullet" aria-hidden="true"></span><span><b>Technical development (ENSTA Paris)</b>: designed and developed a responsive, user-friendly interface connected to an optical interrogator to display pressure data in real time.</span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Business development (IMT Starter)</b>: contributed to market analysis and early business strategy, alongside daily entrepreneurship training.</span></li></ul><p>The programme concluded with a pitch to a jury of banking, investment and entrepreneurship professionals, simulating a fundraising round.</p></div>
+  </div></div>
+</section>
+</div>
+<div class="pane" lang="fr" data-lang="fr">
+<section id="about-fr" class="about">
+  <h1 class="lockup" aria-label="Marion L’Hermite, Ingénieure biomédicale">
+    <span class="lockup-in" aria-hidden="true">
+      <span class="role">INGÉNIEURE BIOMÉDICALE</span>
+      <img class="glyph" src="assets/letter-m.svg" alt="" style="left:5px;top:39.5px;width:150px;height:110.5px">
+      <span class="word w1" style="left:112.5px;top:55px">ARION</span>
+      <span class="word w2"><img class="glyph" src="assets/letter-l.svg" alt="" style="left:-82px;top:-18px;width:132.5px;height:105.5px"><img class="apos" src="assets/apostrophe.svg" alt="">HERMITE</span>
+    </span>
+  </h1>
+  <div class="about-row">
+    <img class="branch" src="assets/branch.svg" alt="">
+    <div class="about-body">
+      <h2 class="t2">À propos</h2>
+      <p>Ingénieure biomédicale diplômée de Télécom SudParis, passionnée par la technologie au service de la médecine.</p>
+      <a href="files/Resume_Marion_L_Hermite.pdf" class="metal cta" target="_blank" rel="noopener" download><svg aria-hidden="true" viewBox="0 0 11 11" width="18" height="18.0" fill="currentColor" class="ico"><circle cx="4.5" cy="0.5" r=".42"/><circle cx="5.5" cy="0.5" r=".42"/><circle cx="6.5" cy="0.5" r=".42"/><circle cx="4.5" cy="1.5" r=".42"/><circle cx="5.5" cy="1.5" r=".42"/><circle cx="6.5" cy="1.5" r=".42"/><circle cx="4.5" cy="2.5" r=".42"/><circle cx="5.5" cy="2.5" r=".42"/><circle cx="6.5" cy="2.5" r=".42"/><circle cx="4.5" cy="3.5" r=".42"/><circle cx="5.5" cy="3.5" r=".42"/><circle cx="6.5" cy="3.5" r=".42"/><circle cx="1.5" cy="4.5" r=".42"/><circle cx="2.5" cy="4.5" r=".42"/><circle cx="3.5" cy="4.5" r=".42"/><circle cx="4.5" cy="4.5" r=".42"/><circle cx="5.5" cy="4.5" r=".42"/><circle cx="6.5" cy="4.5" r=".42"/><circle cx="7.5" cy="4.5" r=".42"/><circle cx="8.5" cy="4.5" r=".42"/><circle cx="9.5" cy="4.5" r=".42"/><circle cx="2.5" cy="5.5" r=".42"/><circle cx="3.5" cy="5.5" r=".42"/><circle cx="4.5" cy="5.5" r=".42"/><circle cx="5.5" cy="5.5" r=".42"/><circle cx="6.5" cy="5.5" r=".42"/><circle cx="7.5" cy="5.5" r=".42"/><circle cx="8.5" cy="5.5" r=".42"/><circle cx="3.5" cy="6.5" r=".42"/><circle cx="4.5" cy="6.5" r=".42"/><circle cx="5.5" cy="6.5" r=".42"/><circle cx="6.5" cy="6.5" r=".42"/><circle cx="7.5" cy="6.5" r=".42"/><circle cx="4.5" cy="7.5" r=".42"/><circle cx="5.5" cy="7.5" r=".42"/><circle cx="6.5" cy="7.5" r=".42"/><circle cx="5.5" cy="8.5" r=".42"/><circle cx="0.5" cy="10.5" r=".42"/><circle cx="1.5" cy="10.5" r=".42"/><circle cx="2.5" cy="10.5" r=".42"/><circle cx="3.5" cy="10.5" r=".42"/><circle cx="4.5" cy="10.5" r=".42"/><circle cx="5.5" cy="10.5" r=".42"/><circle cx="6.5" cy="10.5" r=".42"/><circle cx="7.5" cy="10.5" r=".42"/><circle cx="8.5" cy="10.5" r=".42"/><circle cx="9.5" cy="10.5" r=".42"/><circle cx="10.5" cy="10.5" r=".42"/></svg><span>Télécharger mon CV</span></a>
+    </div>
+    <img class="branch flip" src="assets/branch.svg" alt="">
+  </div>
+</section>
+
+<section id="formation-fr">
+  <div class="sec-head"><img class="orn" src="assets/ornament.svg" alt=""><div class="col"><h2 class="t2">Formation</h2></div></div>
+  <div class="block bg-circuit"><div class="col">
+    <div class="hrow"><div class="hl"><h3 class="t3">Télécom SudParis</h3><span class="meta">École d’ingénieurs généraliste</span><span class="meta">SEPTEMBRE 2023 - JUIN 2026</span></div><div class="loc"><svg aria-hidden="true" viewBox="0 0 9 11" width="18" height="22.0" fill="currentColor" class="ico"><circle cx="2.5" cy="0.5" r=".42"/><circle cx="3.5" cy="0.5" r=".42"/><circle cx="4.5" cy="0.5" r=".42"/><circle cx="5.5" cy="0.5" r=".42"/><circle cx="6.5" cy="0.5" r=".42"/><circle cx="1.5" cy="1.5" r=".42"/><circle cx="2.5" cy="1.5" r=".42"/><circle cx="6.5" cy="1.5" r=".42"/><circle cx="7.5" cy="1.5" r=".42"/><circle cx="0.5" cy="2.5" r=".42"/><circle cx="1.5" cy="2.5" r=".42"/><circle cx="7.5" cy="2.5" r=".42"/><circle cx="8.5" cy="2.5" r=".42"/><circle cx="0.5" cy="3.5" r=".42"/><circle cx="4.5" cy="3.5" r=".42"/><circle cx="8.5" cy="3.5" r=".42"/><circle cx="0.5" cy="4.5" r=".42"/><circle cx="3.5" cy="4.5" r=".42"/><circle cx="4.5" cy="4.5" r=".42"/><circle cx="5.5" cy="4.5" r=".42"/><circle cx="8.5" cy="4.5" r=".42"/><circle cx="0.5" cy="5.5" r=".42"/><circle cx="4.5" cy="5.5" r=".42"/><circle cx="8.5" cy="5.5" r=".42"/><circle cx="0.5" cy="6.5" r=".42"/><circle cx="1.5" cy="6.5" r=".42"/><circle cx="7.5" cy="6.5" r=".42"/><circle cx="8.5" cy="6.5" r=".42"/><circle cx="1.5" cy="7.5" r=".42"/><circle cx="2.5" cy="7.5" r=".42"/><circle cx="6.5" cy="7.5" r=".42"/><circle cx="7.5" cy="7.5" r=".42"/><circle cx="2.5" cy="8.5" r=".42"/><circle cx="3.5" cy="8.5" r=".42"/><circle cx="5.5" cy="8.5" r=".42"/><circle cx="6.5" cy="8.5" r=".42"/><circle cx="3.5" cy="9.5" r=".42"/><circle cx="4.5" cy="9.5" r=".42"/><circle cx="5.5" cy="9.5" r=".42"/><circle cx="4.5" cy="10.5" r=".42"/></svg><span class="meta">Évry-Courcouronnes, France</span></div></div>
+    <div class="carousel" role="region" aria-label="Télécom SudParis"><div class="stage"><div class="track"><article class="card slide"><h4 class="t4">Imagerie &amp; vision par ordinateur</h4><ul><li><span class="bullet" aria-hidden="true"></span><span><b>Acquisition et représentation multimédia</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Analyse d’image</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Vision par ordinateur</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Deep learning</b></span></li></ul></article><article class="card slide"><h4 class="t4">Traitement du signal &amp; communications</h4><ul><li><span class="bullet" aria-hidden="true"></span><span><b>Théorie du signal</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Traitement numérique du signal</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Théorie des communications</b></span></li></ul></article><article class="card slide"><h4 class="t4">Physique &amp; électronique</h4><ul><li><span class="bullet" aria-hidden="true"></span><span><b>Fonctions électroniques fondamentales</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Systèmes hyperfréquences</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Communications par fibre optique</b></span></li></ul></article><article class="card slide"><h4 class="t4">Informatique</h4><ul><li><span class="bullet" aria-hidden="true"></span><span><b>Programmation orientée objet (Java)</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Développement logiciel</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Programmation système (Bash, C)</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Bases de données et systèmes d’information</b></span></li></ul></article><article class="card slide"><h4 class="t4">Calcul scientifique</h4><ul><li><span class="bullet" aria-hidden="true"></span><span><b>Probabilités et statistiques</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Analyse de données</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Optimisation</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Méthodes numériques</b></span></li></ul></article></div><button class="knob kprev" aria-label="Précédent" data-step="-1"><span class="face"><span class="tri left"></span></span></button><button class="knob knext" aria-label="Suivant" data-step="1"><span class="face"><span class="tri"></span></span></button></div><div class="dots"><button class="dot on" data-i="0" aria-label="Afficher Imagerie &amp; vision par ordinateur"><span></span></button><button class="dot" data-i="1" aria-label="Afficher Traitement du signal &amp; communications"><span></span></button><button class="dot" data-i="2" aria-label="Afficher Physique &amp; électronique"><span></span></button><button class="dot" data-i="3" aria-label="Afficher Informatique"><span></span></button><button class="dot" data-i="4" aria-label="Afficher Calcul scientifique"><span></span></button></div></div>
+    <a class="curr" href="https://www.calameo.com/read/00532543045ada21d752f?trackersource=library" target="_blank" rel="noopener"><span>Voir le programme complet</span><svg aria-hidden="true" viewBox="0 0 8 8" width="12" height="12.0" fill="currentColor" class="ico"><circle cx="3.5" cy="0.5" r=".42"/><circle cx="4.5" cy="0.5" r=".42"/><circle cx="5.5" cy="0.5" r=".42"/><circle cx="6.5" cy="0.5" r=".42"/><circle cx="7.5" cy="0.5" r=".42"/><circle cx="5.5" cy="1.5" r=".42"/><circle cx="6.5" cy="1.5" r=".42"/><circle cx="7.5" cy="1.5" r=".42"/><circle cx="4.5" cy="2.5" r=".42"/><circle cx="5.5" cy="2.5" r=".42"/><circle cx="6.5" cy="2.5" r=".42"/><circle cx="7.5" cy="2.5" r=".42"/><circle cx="3.5" cy="3.5" r=".42"/><circle cx="4.5" cy="3.5" r=".42"/><circle cx="5.5" cy="3.5" r=".42"/><circle cx="7.5" cy="3.5" r=".42"/><circle cx="2.5" cy="4.5" r=".42"/><circle cx="3.5" cy="4.5" r=".42"/><circle cx="4.5" cy="4.5" r=".42"/><circle cx="1.5" cy="5.5" r=".42"/><circle cx="2.5" cy="5.5" r=".42"/><circle cx="3.5" cy="5.5" r=".42"/><circle cx="0.5" cy="6.5" r=".42"/><circle cx="1.5" cy="6.5" r=".42"/><circle cx="2.5" cy="6.5" r=".42"/><circle cx="1.5" cy="7.5" r=".42"/></svg></a>
+  </div></div>
+  <div class="block bg-acropolis"><div class="col">
+    <div class="hrow"><div class="hl"><h3 class="t3">Université polytechnique nationale d’Athènes</h3><span class="meta">Échange Erasmus</span><span class="meta">SEPTEMBRE 2025 - FÉVRIER 2026</span></div><div class="loc"><svg aria-hidden="true" viewBox="0 0 9 11" width="18" height="22.0" fill="currentColor" class="ico"><circle cx="2.5" cy="0.5" r=".42"/><circle cx="3.5" cy="0.5" r=".42"/><circle cx="4.5" cy="0.5" r=".42"/><circle cx="5.5" cy="0.5" r=".42"/><circle cx="6.5" cy="0.5" r=".42"/><circle cx="1.5" cy="1.5" r=".42"/><circle cx="2.5" cy="1.5" r=".42"/><circle cx="6.5" cy="1.5" r=".42"/><circle cx="7.5" cy="1.5" r=".42"/><circle cx="0.5" cy="2.5" r=".42"/><circle cx="1.5" cy="2.5" r=".42"/><circle cx="7.5" cy="2.5" r=".42"/><circle cx="8.5" cy="2.5" r=".42"/><circle cx="0.5" cy="3.5" r=".42"/><circle cx="4.5" cy="3.5" r=".42"/><circle cx="8.5" cy="3.5" r=".42"/><circle cx="0.5" cy="4.5" r=".42"/><circle cx="3.5" cy="4.5" r=".42"/><circle cx="4.5" cy="4.5" r=".42"/><circle cx="5.5" cy="4.5" r=".42"/><circle cx="8.5" cy="4.5" r=".42"/><circle cx="0.5" cy="5.5" r=".42"/><circle cx="4.5" cy="5.5" r=".42"/><circle cx="8.5" cy="5.5" r=".42"/><circle cx="0.5" cy="6.5" r=".42"/><circle cx="1.5" cy="6.5" r=".42"/><circle cx="7.5" cy="6.5" r=".42"/><circle cx="8.5" cy="6.5" r=".42"/><circle cx="1.5" cy="7.5" r=".42"/><circle cx="2.5" cy="7.5" r=".42"/><circle cx="6.5" cy="7.5" r=".42"/><circle cx="7.5" cy="7.5" r=".42"/><circle cx="2.5" cy="8.5" r=".42"/><circle cx="3.5" cy="8.5" r=".42"/><circle cx="5.5" cy="8.5" r=".42"/><circle cx="6.5" cy="8.5" r=".42"/><circle cx="3.5" cy="9.5" r=".42"/><circle cx="4.5" cy="9.5" r=".42"/><circle cx="5.5" cy="9.5" r=".42"/><circle cx="4.5" cy="10.5" r=".42"/></svg><span class="meta">Athènes, Grèce</span></div></div>
+    <div class="carousel" role="region" aria-label="Université polytechnique nationale d’Athènes"><div class="stage"><div class="track"><article class="card slide"><ul><li><span class="bullet" aria-hidden="true"></span><span><b>Sciences du vivant pour l’ingénieur</b> : anatomie, physiologie et histologie, enseignées par des médecins de la faculté de médecine d’Athènes.</span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Biostatistiques et machine learning</b> : fondamentaux des biostatistiques et leur application aux données médicales.</span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Acquisition et traitement de biosignaux</b> : techniques d’acquisition de biosignaux et traitement, lors d’un projet de groupe, de signaux d’électroencéphalographie (EEG) pour distinguer des mouvements volontaires de la jambe d’états de repos déclenchés par des stimuli visuels.</span></li></ul></article><article class="card slide"><ul><li><span class="bullet" aria-hidden="true"></span><span><b>Méthodologie de la recherche</b> : lecture critique d’articles scientifiques, conception d’études et rédaction d’un article de revue.</span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Biomécanique</b> : modélisation et analyse d’un fémur stabilisé par plaque et par clou.</span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Fondamentaux du biodesign</b> : cours d’entrepreneuriat consacré à la création de start-up deep tech.</span></li></ul></article></div><button class="knob kprev" aria-label="Précédent" data-step="-1"><span class="face"><span class="tri left"></span></span></button><button class="knob knext" aria-label="Suivant" data-step="1"><span class="face"><span class="tri"></span></span></button></div><div class="dots"><button class="dot on" data-i="0" aria-label="Afficher 1"><span></span></button><button class="dot" data-i="1" aria-label="Afficher 2"><span></span></button></div></div>
+    <a class="curr" href="https://masterteam.ntua.gr/" target="_blank" rel="noopener"><span>Voir le programme complet</span><svg aria-hidden="true" viewBox="0 0 8 8" width="12" height="12.0" fill="currentColor" class="ico"><circle cx="3.5" cy="0.5" r=".42"/><circle cx="4.5" cy="0.5" r=".42"/><circle cx="5.5" cy="0.5" r=".42"/><circle cx="6.5" cy="0.5" r=".42"/><circle cx="7.5" cy="0.5" r=".42"/><circle cx="5.5" cy="1.5" r=".42"/><circle cx="6.5" cy="1.5" r=".42"/><circle cx="7.5" cy="1.5" r=".42"/><circle cx="4.5" cy="2.5" r=".42"/><circle cx="5.5" cy="2.5" r=".42"/><circle cx="6.5" cy="2.5" r=".42"/><circle cx="7.5" cy="2.5" r=".42"/><circle cx="3.5" cy="3.5" r=".42"/><circle cx="4.5" cy="3.5" r=".42"/><circle cx="5.5" cy="3.5" r=".42"/><circle cx="7.5" cy="3.5" r=".42"/><circle cx="2.5" cy="4.5" r=".42"/><circle cx="3.5" cy="4.5" r=".42"/><circle cx="4.5" cy="4.5" r=".42"/><circle cx="1.5" cy="5.5" r=".42"/><circle cx="2.5" cy="5.5" r=".42"/><circle cx="3.5" cy="5.5" r=".42"/><circle cx="0.5" cy="6.5" r=".42"/><circle cx="1.5" cy="6.5" r=".42"/><circle cx="2.5" cy="6.5" r=".42"/><circle cx="1.5" cy="7.5" r=".42"/></svg></a>
+  </div></div>
+</section>
+
+<section id="experience-fr">
+  <div class="sec-head"><img class="orn" src="assets/ornament.svg" alt=""><div class="col"><h2 class="t2">Expérience</h2></div></div>
+  <div class="block bg-rajola"><div class="col">
+    <div class="hrow"><div class="hl"><h3 class="t3">Flomics Biotech</h3><span class="meta">Stage de fin d’études</span><span class="meta">MAI 2026 - OCTOBRE 2026</span></div><div class="loc"><svg aria-hidden="true" viewBox="0 0 9 11" width="18" height="22.0" fill="currentColor" class="ico"><circle cx="2.5" cy="0.5" r=".42"/><circle cx="3.5" cy="0.5" r=".42"/><circle cx="4.5" cy="0.5" r=".42"/><circle cx="5.5" cy="0.5" r=".42"/><circle cx="6.5" cy="0.5" r=".42"/><circle cx="1.5" cy="1.5" r=".42"/><circle cx="2.5" cy="1.5" r=".42"/><circle cx="6.5" cy="1.5" r=".42"/><circle cx="7.5" cy="1.5" r=".42"/><circle cx="0.5" cy="2.5" r=".42"/><circle cx="1.5" cy="2.5" r=".42"/><circle cx="7.5" cy="2.5" r=".42"/><circle cx="8.5" cy="2.5" r=".42"/><circle cx="0.5" cy="3.5" r=".42"/><circle cx="4.5" cy="3.5" r=".42"/><circle cx="8.5" cy="3.5" r=".42"/><circle cx="0.5" cy="4.5" r=".42"/><circle cx="3.5" cy="4.5" r=".42"/><circle cx="4.5" cy="4.5" r=".42"/><circle cx="5.5" cy="4.5" r=".42"/><circle cx="8.5" cy="4.5" r=".42"/><circle cx="0.5" cy="5.5" r=".42"/><circle cx="4.5" cy="5.5" r=".42"/><circle cx="8.5" cy="5.5" r=".42"/><circle cx="0.5" cy="6.5" r=".42"/><circle cx="1.5" cy="6.5" r=".42"/><circle cx="7.5" cy="6.5" r=".42"/><circle cx="8.5" cy="6.5" r=".42"/><circle cx="1.5" cy="7.5" r=".42"/><circle cx="2.5" cy="7.5" r=".42"/><circle cx="6.5" cy="7.5" r=".42"/><circle cx="7.5" cy="7.5" r=".42"/><circle cx="2.5" cy="8.5" r=".42"/><circle cx="3.5" cy="8.5" r=".42"/><circle cx="5.5" cy="8.5" r=".42"/><circle cx="6.5" cy="8.5" r=".42"/><circle cx="3.5" cy="9.5" r=".42"/><circle cx="4.5" cy="9.5" r=".42"/><circle cx="5.5" cy="9.5" r=".42"/><circle cx="4.5" cy="10.5" r=".42"/></svg><span class="meta">Barcelone, Espagne</span></div></div>
+    <div class="card"><h4 class="t4">Stagiaire data scientist en bio-informatique</h4><p>Flomics développe des solutions de biopsie liquide fondées sur l’ARN circulant. Lors de mon stage de fin d’études, j’ai travaillé sur des données d’expression génique et développé des modèles de machine learning pour prédire l’âge biologique à partir de l’ARN circulant.</p><ul><li><span class="bullet" aria-hidden="true"></span><span>Développement de pipelines de bio-informatique et de machine learning pour l’analyse de données cfRNA-seq et la prédiction de l’âge biologique à partir de données transcriptomiques de grande dimension.</span></li><li><span class="bullet" aria-hidden="true"></span><span>Traitement et analyse de jeux de données transcriptomiques en Python et en R : prétraitement, contrôle qualité, normalisation, analyse statistique et sélection de variables.</span></li><li><span class="bullet" aria-hidden="true"></span><span>Évaluation de modèles de machine learning de régression et à base d’arbres.</span></li><li><span class="bullet" aria-hidden="true"></span><span>Conception de stratégies de feature engineering guidées par la biologie, fondées sur la co-expression des gènes et les voies biologiques, afin de réduire la dimensionnalité et d’améliorer la robustesse et l’interprétabilité des modèles.</span></li></ul>
+      <button class="metal small slides-btn" data-title="Flomics : slides du stage" hidden><svg aria-hidden="true" viewBox="0 0 9 11" width="16" height="19.6" fill="currentColor" class="ico"><circle cx="0.5" cy="0.5" r=".42"/><circle cx="1.5" cy="0.5" r=".42"/><circle cx="2.5" cy="0.5" r=".42"/><circle cx="3.5" cy="0.5" r=".42"/><circle cx="4.5" cy="0.5" r=".42"/><circle cx="5.5" cy="0.5" r=".42"/><circle cx="0.5" cy="1.5" r=".42"/><circle cx="5.5" cy="1.5" r=".42"/><circle cx="6.5" cy="1.5" r=".42"/><circle cx="0.5" cy="2.5" r=".42"/><circle cx="5.5" cy="2.5" r=".42"/><circle cx="6.5" cy="2.5" r=".42"/><circle cx="7.5" cy="2.5" r=".42"/><circle cx="0.5" cy="3.5" r=".42"/><circle cx="8.5" cy="3.5" r=".42"/><circle cx="0.5" cy="4.5" r=".42"/><circle cx="2.5" cy="4.5" r=".42"/><circle cx="3.5" cy="4.5" r=".42"/><circle cx="4.5" cy="4.5" r=".42"/><circle cx="5.5" cy="4.5" r=".42"/><circle cx="6.5" cy="4.5" r=".42"/><circle cx="8.5" cy="4.5" r=".42"/><circle cx="0.5" cy="5.5" r=".42"/><circle cx="8.5" cy="5.5" r=".42"/><circle cx="0.5" cy="6.5" r=".42"/><circle cx="2.5" cy="6.5" r=".42"/><circle cx="3.5" cy="6.5" r=".42"/><circle cx="4.5" cy="6.5" r=".42"/><circle cx="5.5" cy="6.5" r=".42"/><circle cx="6.5" cy="6.5" r=".42"/><circle cx="8.5" cy="6.5" r=".42"/><circle cx="0.5" cy="7.5" r=".42"/><circle cx="8.5" cy="7.5" r=".42"/><circle cx="0.5" cy="8.5" r=".42"/><circle cx="2.5" cy="8.5" r=".42"/><circle cx="3.5" cy="8.5" r=".42"/><circle cx="4.5" cy="8.5" r=".42"/><circle cx="5.5" cy="8.5" r=".42"/><circle cx="8.5" cy="8.5" r=".42"/><circle cx="0.5" cy="9.5" r=".42"/><circle cx="8.5" cy="9.5" r=".42"/><circle cx="0.5" cy="10.5" r=".42"/><circle cx="1.5" cy="10.5" r=".42"/><circle cx="2.5" cy="10.5" r=".42"/><circle cx="3.5" cy="10.5" r=".42"/><circle cx="4.5" cy="10.5" r=".42"/><circle cx="5.5" cy="10.5" r=".42"/><circle cx="6.5" cy="10.5" r=".42"/><circle cx="7.5" cy="10.5" r=".42"/><circle cx="8.5" cy="10.5" r=".42"/></svg><span>Slides détaillées de mon stage</span></button></div>
+  </div></div>
+  <div class="block bg-dna"><div class="col">
+    <div class="hrow"><div class="hl"><h3 class="t3">Genoscope (CEA)</h3><span class="meta">Projet académique avec un laboratoire externe</span><span class="meta">DÉCEMBRE 2024 - MAI 2025</span></div></div>
+    <div class="card"><h4 class="t4">Contributrice en recherche bio-informatique</h4><p>Pendant plusieurs mois, j’ai collaboré avec l’équipe de recherche du Genoscope, le centre de séquençage génomique du CEA, sur le projet LAGE, qui étudie la diversité des eucaryotes marins à l’échelle mondiale. Mon équipe et moi avons pris en charge l’un de leurs besoins opérationnels : automatiser l’étape qui transforme les contigs assemblés en génomes. J’ai mis en place un workflow automatisé qui regroupe les contigs en génomes assemblés à partir de métagénomes (MAGs), grâce à des règles d’Answer Set Programming combinées à des critères d’optimisation.</p>
+      <button class="metal small" data-pdf="files/Poster_automatisation_du_clustering_de_genomes_environnementaux.pdf" data-title="Genoscope : poster du projet"><svg aria-hidden="true" viewBox="0 0 9 11" width="16" height="19.6" fill="currentColor" class="ico"><circle cx="0.5" cy="0.5" r=".42"/><circle cx="1.5" cy="0.5" r=".42"/><circle cx="2.5" cy="0.5" r=".42"/><circle cx="3.5" cy="0.5" r=".42"/><circle cx="4.5" cy="0.5" r=".42"/><circle cx="5.5" cy="0.5" r=".42"/><circle cx="0.5" cy="1.5" r=".42"/><circle cx="5.5" cy="1.5" r=".42"/><circle cx="6.5" cy="1.5" r=".42"/><circle cx="0.5" cy="2.5" r=".42"/><circle cx="5.5" cy="2.5" r=".42"/><circle cx="6.5" cy="2.5" r=".42"/><circle cx="7.5" cy="2.5" r=".42"/><circle cx="0.5" cy="3.5" r=".42"/><circle cx="8.5" cy="3.5" r=".42"/><circle cx="0.5" cy="4.5" r=".42"/><circle cx="2.5" cy="4.5" r=".42"/><circle cx="3.5" cy="4.5" r=".42"/><circle cx="4.5" cy="4.5" r=".42"/><circle cx="5.5" cy="4.5" r=".42"/><circle cx="6.5" cy="4.5" r=".42"/><circle cx="8.5" cy="4.5" r=".42"/><circle cx="0.5" cy="5.5" r=".42"/><circle cx="8.5" cy="5.5" r=".42"/><circle cx="0.5" cy="6.5" r=".42"/><circle cx="2.5" cy="6.5" r=".42"/><circle cx="3.5" cy="6.5" r=".42"/><circle cx="4.5" cy="6.5" r=".42"/><circle cx="5.5" cy="6.5" r=".42"/><circle cx="6.5" cy="6.5" r=".42"/><circle cx="8.5" cy="6.5" r=".42"/><circle cx="0.5" cy="7.5" r=".42"/><circle cx="8.5" cy="7.5" r=".42"/><circle cx="0.5" cy="8.5" r=".42"/><circle cx="2.5" cy="8.5" r=".42"/><circle cx="3.5" cy="8.5" r=".42"/><circle cx="4.5" cy="8.5" r=".42"/><circle cx="5.5" cy="8.5" r=".42"/><circle cx="8.5" cy="8.5" r=".42"/><circle cx="0.5" cy="9.5" r=".42"/><circle cx="8.5" cy="9.5" r=".42"/><circle cx="0.5" cy="10.5" r=".42"/><circle cx="1.5" cy="10.5" r=".42"/><circle cx="2.5" cy="10.5" r=".42"/><circle cx="3.5" cy="10.5" r=".42"/><circle cx="4.5" cy="10.5" r=".42"/><circle cx="5.5" cy="10.5" r=".42"/><circle cx="6.5" cy="10.5" r=".42"/><circle cx="7.5" cy="10.5" r=".42"/><circle cx="8.5" cy="10.5" r=".42"/></svg><span>Poster du projet</span></button></div>
+  </div></div>
+  <div class="block"><div class="col">
+    <div class="hrow"><div class="hl"><h3 class="t3">ENSTA Paris × IMT Starter</h3><span class="meta">Programme d’été</span><span class="meta">JUIN 2026 - JUILLET 2026</span></div></div>
+    <div class="card"><h4 class="t4">Stagiaire innovation &amp; développement logiciel</h4><p>Accueillie par l’incubateur IMT Starter, j’ai rejoint une équipe de chercheurs qui souhaitait transformer un dispositif médical en start-up : un patch de capteurs de pression à fibre optique (capteurs à réseaux de Bragg) associé à une interface de visualisation en temps réel pour des applications prothétiques.</p><ul><li><span class="bullet" aria-hidden="true"></span><span><b>Développement technique (ENSTA Paris)</b> : conception et développement d’une interface réactive et ergonomique, connectée à un interrogateur optique pour afficher les données de pression en temps réel.</span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Développement commercial (IMT Starter)</b> : participation à l’analyse de marché et à la stratégie commerciale initiale, en parallèle d’une formation quotidienne à l’entrepreneuriat.</span></li></ul><p>Le programme s’est conclu par un pitch devant un jury de professionnels de la banque, de l’investissement et de l’entrepreneuriat, simulant une levée de fonds.</p></div>
+  </div></div>
+</section>
+</div>
+</main>
+
+<footer>
+  <img class="orn" src="assets/ornament.svg" alt="">
+  <div class="contact">
+    <span class="lbl">Contact</span>
+    <a href="mailto:marion.lhermite@telecom-sudparis.eu">marion.lhermite@telecom-sudparis.eu</a>
+  </div>
+  <a href="https://www.linkedin.com/in/marion-l-hermite/" target="_blank" rel="noopener" aria-label="Marion L’Hermite on LinkedIn" class="led" style="display:flex;align-items:center;justify-content:center;width:48px;height:48px"><svg aria-hidden="true" viewBox="0 0 13 12" width="30" height="27.7" fill="currentColor" class="ico"><circle cx="0.5" cy="0.5" r=".42"/><circle cx="1.5" cy="0.5" r=".42"/><circle cx="2.5" cy="0.5" r=".42"/><circle cx="3.5" cy="0.5" r=".42"/><circle cx="4.5" cy="0.5" r=".42"/><circle cx="5.5" cy="0.5" r=".42"/><circle cx="6.5" cy="0.5" r=".42"/><circle cx="7.5" cy="0.5" r=".42"/><circle cx="8.5" cy="0.5" r=".42"/><circle cx="9.5" cy="0.5" r=".42"/><circle cx="10.5" cy="0.5" r=".42"/><circle cx="11.5" cy="0.5" r=".42"/><circle cx="12.5" cy="0.5" r=".42"/><circle cx="0.5" cy="1.5" r=".42"/><circle cx="12.5" cy="1.5" r=".42"/><circle cx="0.5" cy="2.5" r=".42"/><circle cx="2.5" cy="2.5" r=".42"/><circle cx="3.5" cy="2.5" r=".42"/><circle cx="12.5" cy="2.5" r=".42"/><circle cx="0.5" cy="3.5" r=".42"/><circle cx="2.5" cy="3.5" r=".42"/><circle cx="3.5" cy="3.5" r=".42"/><circle cx="12.5" cy="3.5" r=".42"/><circle cx="0.5" cy="4.5" r=".42"/><circle cx="12.5" cy="4.5" r=".42"/><circle cx="0.5" cy="5.5" r=".42"/><circle cx="2.5" cy="5.5" r=".42"/><circle cx="3.5" cy="5.5" r=".42"/><circle cx="5.5" cy="5.5" r=".42"/><circle cx="6.5" cy="5.5" r=".42"/><circle cx="8.5" cy="5.5" r=".42"/><circle cx="9.5" cy="5.5" r=".42"/><circle cx="12.5" cy="5.5" r=".42"/><circle cx="0.5" cy="6.5" r=".42"/><circle cx="2.5" cy="6.5" r=".42"/><circle cx="3.5" cy="6.5" r=".42"/><circle cx="5.5" cy="6.5" r=".42"/><circle cx="6.5" cy="6.5" r=".42"/><circle cx="7.5" cy="6.5" r=".42"/><circle cx="10.5" cy="6.5" r=".42"/><circle cx="12.5" cy="6.5" r=".42"/><circle cx="0.5" cy="7.5" r=".42"/><circle cx="2.5" cy="7.5" r=".42"/><circle cx="3.5" cy="7.5" r=".42"/><circle cx="5.5" cy="7.5" r=".42"/><circle cx="6.5" cy="7.5" r=".42"/><circle cx="10.5" cy="7.5" r=".42"/><circle cx="12.5" cy="7.5" r=".42"/><circle cx="0.5" cy="8.5" r=".42"/><circle cx="2.5" cy="8.5" r=".42"/><circle cx="3.5" cy="8.5" r=".42"/><circle cx="5.5" cy="8.5" r=".42"/><circle cx="6.5" cy="8.5" r=".42"/><circle cx="10.5" cy="8.5" r=".42"/><circle cx="12.5" cy="8.5" r=".42"/><circle cx="0.5" cy="9.5" r=".42"/><circle cx="2.5" cy="9.5" r=".42"/><circle cx="3.5" cy="9.5" r=".42"/><circle cx="5.5" cy="9.5" r=".42"/><circle cx="6.5" cy="9.5" r=".42"/><circle cx="10.5" cy="9.5" r=".42"/><circle cx="12.5" cy="9.5" r=".42"/><circle cx="0.5" cy="10.5" r=".42"/><circle cx="12.5" cy="10.5" r=".42"/><circle cx="0.5" cy="11.5" r=".42"/><circle cx="1.5" cy="11.5" r=".42"/><circle cx="2.5" cy="11.5" r=".42"/><circle cx="3.5" cy="11.5" r=".42"/><circle cx="4.5" cy="11.5" r=".42"/><circle cx="5.5" cy="11.5" r=".42"/><circle cx="6.5" cy="11.5" r=".42"/><circle cx="7.5" cy="11.5" r=".42"/><circle cx="8.5" cy="11.5" r=".42"/><circle cx="9.5" cy="11.5" r=".42"/><circle cx="10.5" cy="11.5" r=".42"/><circle cx="11.5" cy="11.5" r=".42"/><circle cx="12.5" cy="11.5" r=".42"/></svg></a>
+  <small>© 2026 Marion L’Hermite</small>
+</footer>
+
+<div class="viewer" role="dialog" aria-modal="true" aria-labelledby="vttl">
+  <div class="box glass">
+    <div class="bar">
+      <svg aria-hidden="true" viewBox="0 0 9 11" width="24" height="29.3" fill="currentColor" class="ico"><circle cx="0.5" cy="0.5" r=".42"/><circle cx="1.5" cy="0.5" r=".42"/><circle cx="2.5" cy="0.5" r=".42"/><circle cx="3.5" cy="0.5" r=".42"/><circle cx="4.5" cy="0.5" r=".42"/><circle cx="5.5" cy="0.5" r=".42"/><circle cx="0.5" cy="1.5" r=".42"/><circle cx="5.5" cy="1.5" r=".42"/><circle cx="6.5" cy="1.5" r=".42"/><circle cx="0.5" cy="2.5" r=".42"/><circle cx="5.5" cy="2.5" r=".42"/><circle cx="6.5" cy="2.5" r=".42"/><circle cx="7.5" cy="2.5" r=".42"/><circle cx="0.5" cy="3.5" r=".42"/><circle cx="8.5" cy="3.5" r=".42"/><circle cx="0.5" cy="4.5" r=".42"/><circle cx="2.5" cy="4.5" r=".42"/><circle cx="3.5" cy="4.5" r=".42"/><circle cx="4.5" cy="4.5" r=".42"/><circle cx="5.5" cy="4.5" r=".42"/><circle cx="6.5" cy="4.5" r=".42"/><circle cx="8.5" cy="4.5" r=".42"/><circle cx="0.5" cy="5.5" r=".42"/><circle cx="8.5" cy="5.5" r=".42"/><circle cx="0.5" cy="6.5" r=".42"/><circle cx="2.5" cy="6.5" r=".42"/><circle cx="3.5" cy="6.5" r=".42"/><circle cx="4.5" cy="6.5" r=".42"/><circle cx="5.5" cy="6.5" r=".42"/><circle cx="6.5" cy="6.5" r=".42"/><circle cx="8.5" cy="6.5" r=".42"/><circle cx="0.5" cy="7.5" r=".42"/><circle cx="8.5" cy="7.5" r=".42"/><circle cx="0.5" cy="8.5" r=".42"/><circle cx="2.5" cy="8.5" r=".42"/><circle cx="3.5" cy="8.5" r=".42"/><circle cx="4.5" cy="8.5" r=".42"/><circle cx="5.5" cy="8.5" r=".42"/><circle cx="8.5" cy="8.5" r=".42"/><circle cx="0.5" cy="9.5" r=".42"/><circle cx="8.5" cy="9.5" r=".42"/><circle cx="0.5" cy="10.5" r=".42"/><circle cx="1.5" cy="10.5" r=".42"/><circle cx="2.5" cy="10.5" r=".42"/><circle cx="3.5" cy="10.5" r=".42"/><circle cx="4.5" cy="10.5" r=".42"/><circle cx="5.5" cy="10.5" r=".42"/><circle cx="6.5" cy="10.5" r=".42"/><circle cx="7.5" cy="10.5" r=".42"/><circle cx="8.5" cy="10.5" r=".42"/></svg>
+      <span class="ttl" id="vttl"></span>
+      <button class="vbtn zout" type="button">−</button>
+      <button class="vbtn zin" type="button">+</button>
+      <a class="vbtn txt vopen" target="_blank" rel="noopener">PDF ↗</a>
+      <button class="vbtn vclose" type="button">✕</button>
+    </div>
+    <div class="pages"></div>
+  </div>
+</div>
+
+<script>
+const UI = {"en": {"nav": ["About", "Formation", "Experience"], "home": "Home", "close": "Close", "open": "Open the PDF", "zin": "Zoom in", "zout": "Zoom out", "loading": "Loading…", "fail": "The PDF could not be displayed here."}, "fr": {"nav": ["À propos", "Formation", "Expérience"], "home": "Accueil", "close": "Fermer", "open": "Ouvrir le PDF", "zin": "Agrandir", "zout": "Réduire", "loading": "Chargement…", "fail": "Le PDF n’a pas pu s’afficher ici."}};
+const SLIDES = ['files/Internship_portfolio_slides.pdf', 'Internship_portfolio_slides.pdf'];
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isDesk = () => matchMedia('(min-width:900px)').matches;
+let lang = 'en';   // the site always opens in English
+
+/* ---------- page scrolling ---------- */
+const ease = t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2;
+let pageAnim = 0;
+function glideTo(y){
+  y = Math.max(0, Math.min(y, document.documentElement.scrollHeight - innerHeight));
+  const start = scrollY, dist = y - start;
+  if (reduce || Math.abs(dist) < 2) { scrollTo(0, y); return; }
+  const dur = Math.min(2200, Math.max(1100, Math.abs(dist) * .55)), t0 = performance.now();
+  cancelAnimationFrame(pageAnim);
+  const step = now => { const p = Math.min(1, (now - t0) / dur); scrollTo(0, start + dist * ease(p)); if (p < 1) pageAnim = requestAnimationFrame(step); };
+  pageAnim = requestAnimationFrame(step);
+}
+['touchstart','wheel'].forEach(ev => addEventListener(ev, () => cancelAnimationFrame(pageAnim), {passive:true}));
+document.querySelectorAll('[data-go]').forEach(a => a.addEventListener('click', ev => {
+  ev.preventDefault();
+  const id = a.dataset.go;
+  if (id === 'top') return glideTo(0);
+  const el = document.getElementById(id + '-' + lang);
+  glideTo(el.getBoundingClientRect().top + scrollY - document.querySelector('header').offsetHeight - 4);
+}));
+
+/* ---------- name lockup: one line on desktop, two lines on phones ---------- */
+function fitLockups(){
+  const desk = isDesk();
+  document.querySelectorAll('.pane.show .lockup').forEach(h => {
+    const inner = h.querySelector('.lockup-in'), w1 = inner.querySelector('.w1'), w2 = inner.querySelector('.w2');
+    inner.style.transform = 'none';
+    if (desk) { w2.style.left = (112.5 + w1.offsetWidth + 124) + 'px'; w2.style.top = '55px'; }
+    else { w2.style.left = ''; w2.style.top = ''; }
+    const o = inner.getBoundingClientRect(); let w = 0, hh = 0;
+    inner.querySelectorAll('.role,.word,.glyph').forEach(n => { const r = n.getBoundingClientRect(); w = Math.max(w, r.right - o.left); hh = Math.max(hh, r.bottom - o.top); });
+    const avail = document.documentElement.clientWidth - (desk ? 72 : 40);
+    const s = Math.min(desk ? 1.2 : .9, avail / w);
+    inner.style.transform = 'scale(' + s + ')';
+    h.style.width = (w * s) + 'px'; h.style.height = (hh * s) + 'px';
+  });
+}
+
+/* ---------- carousels ---------- */
+const carousels = [];
+document.querySelectorAll('.carousel').forEach(c => {
+  const track = c.querySelector('.track'), slides = [...track.children], dots = [...c.querySelectorAll('.dot')];
+  const st = {c, track, slides, idx:0, paused:0, anim:0, visible:false};
+  const x = i => slides[i].offsetLeft - slides[0].offsetLeft;
+  st.go = i => {
+    st.idx = (i + slides.length) % slides.length;
+    const from = track.scrollLeft, d = x(st.idx) - from;
+    mark(st.idx);
+    if (reduce) { track.scrollLeft = from + d; return; }
+    const dur = 1400, t0 = performance.now();
+    track.classList.add('gliding'); cancelAnimationFrame(st.anim);
+    const step = now => { const p = Math.min(1, (now - t0) / dur); track.scrollLeft = from + d * ease(p);
+      if (p < 1) st.anim = requestAnimationFrame(step); else track.classList.remove('gliding'); };
+    st.anim = requestAnimationFrame(step);
+  };
+  const mark = i => dots.forEach((d, k) => d.classList.toggle('on', k === i));
+  track.addEventListener('scroll', () => {
+    if (track.classList.contains('gliding')) return;
+    const i = Math.round(track.scrollLeft / (slides[0].offsetWidth + 14));
+    st.idx = Math.max(0, Math.min(slides.length - 1, i)); mark(st.idx);
+  }, {passive:true});
+  const hold = () => { st.paused = Date.now(); cancelAnimationFrame(st.anim); track.classList.remove('gliding'); };
+  ['touchstart','pointerdown','wheel'].forEach(ev => track.addEventListener(ev, hold, {passive:true}));
+  c.querySelectorAll('.knob').forEach(k => k.addEventListener('click', () => { st.paused = Date.now(); st.go(st.idx + +k.dataset.step); }));
+  dots.forEach(d => d.addEventListener('click', () => { st.paused = Date.now(); st.go(+d.dataset.i); }));
+  new IntersectionObserver(es => es.forEach(e => st.visible = e.isIntersecting), {threshold:.5}).observe(c);
+  carousels.push(st);
+});
+// phones: one step every 5.5 s, waits 8 s after the reader touches it
+if (!reduce) setInterval(() => { if (isDesk()) return; carousels.forEach(st => {
+  if (st.visible && st.c.offsetParent && Date.now() - st.paused > 8000) st.go(st.idx + 1); }); }, 5500);
+
+/* ---------- language ---------- */
+function setLang(l){
+  lang = l;
+  document.documentElement.lang = l;
+  document.querySelectorAll('.pane').forEach(p => p.classList.toggle('show', p.dataset.lang === l));
+  document.querySelectorAll('[data-set]').forEach(b => b.setAttribute('aria-pressed', b.dataset.set === l));
+  const links = document.querySelectorAll('nav .navlinks [data-go]');
+  links.forEach((a, k) => a.textContent = UI[l].nav[k]);
+  document.querySelector('.homebtn').setAttribute('aria-label', UI[l].home);
+  const v = document.querySelector('.viewer');
+  v.querySelector('.vclose').setAttribute('aria-label', UI[l].close);
+  v.querySelector('.zin').setAttribute('aria-label', UI[l].zin);
+  v.querySelector('.zout').setAttribute('aria-label', UI[l].zout);
+  v.querySelector('.vopen').setAttribute('aria-label', UI[l].open);
+  carousels.forEach(st => { st.idx = 0; st.track.scrollLeft = 0; st.c.querySelectorAll('.dot').forEach((d, k) => d.classList.toggle('on', k === 0)); });
+  fitLockups(); onScroll();
+}
+document.querySelectorAll('[data-set]').forEach(b => b.addEventListener('click', () => setLang(b.dataset.set)));
+
+/* ---------- active section in the nav ---------- */
+function onScroll(){
+  const off = document.querySelector('header').offsetHeight + 40; let cur = null;
+  ['about','formation','experience'].forEach(id => { const el = document.getElementById(id + '-' + lang); if (el && el.getBoundingClientRect().top <= off) cur = id; });
+  if (scrollY < 40) cur = null;
+  document.querySelectorAll('nav [data-go]').forEach(a => a.classList.toggle('on', a.dataset.go === cur));
+}
+addEventListener('scroll', onScroll, {passive:true});
+
+/* ---------- PDF viewer ---------- */
+const viewer = document.querySelector('.viewer'), pagesEl = viewer.querySelector('.pages');
+let pdfjs = null, doc = null, task = null, zoom = 1, renderTok = 0, lastFocus = null;
+const ZOOMS = [1, 1.5, 2, 3];
+async function lib(){
+  if (!pdfjs) {
+    pdfjs = await import('./vendor/pdfjs/pdf.min.mjs');
+    pdfjs.GlobalWorkerOptions.workerSrc = new URL('vendor/pdfjs/pdf.worker.min.mjs', location.href).href;
+  }
+  return pdfjs;
+}
+async function render(){
+  const tok = ++renderTok;
+  const W = pagesEl.clientWidth - 24, dpr = Math.min(devicePixelRatio || 1, 3);
+  const frag = document.createDocumentFragment();
+  for (let n = 1; n <= doc.numPages; n++) {
+    const page = await doc.getPage(n);
+    if (tok !== renderTok) return;
+    const base = page.getViewport({scale:1});
+    const cssW = W * zoom, cssH = cssW * base.height / base.width;
+    let px = cssW * dpr;
+    const maxArea = 14e6;                    // stay under mobile canvas limits
+    if (px * px * base.height / base.width > maxArea) px = Math.sqrt(maxArea * base.width / base.height);
+    const vp = page.getViewport({scale: px / base.width});
+    const cv = document.createElement('canvas');
+    cv.width = Math.floor(vp.width); cv.height = Math.floor(vp.height);
+    cv.style.width = cssW + 'px'; cv.style.height = cssH + 'px';
+    await page.render({canvasContext: cv.getContext('2d'), viewport: vp}).promise;
+    if (tok !== renderTok) return;
+    frag.appendChild(cv);
+  }
+  const fx = pagesEl.scrollLeft / Math.max(1, pagesEl.scrollWidth), fy = pagesEl.scrollTop / Math.max(1, pagesEl.scrollHeight);
+  pagesEl.replaceChildren(frag);
+  pagesEl.scrollLeft = fx * pagesEl.scrollWidth; pagesEl.scrollTop = fy * pagesEl.scrollHeight;
+}
+async function openPdf(src, title){
+  lastFocus = document.activeElement;
+  viewer.querySelector('.ttl').textContent = title;
+  viewer.querySelector('.vopen').href = src;
+  pagesEl.innerHTML = '<p class="msg">' + UI[lang].loading + '</p>';
+  zoom = 1; viewer.classList.add('open'); document.body.classList.add('lock');
+  viewer.querySelector('.vclose').focus();
+  try {
+    const L = await lib();
+    task = L.getDocument({url: src}); doc = await task.promise;
+    await render();
+  } catch (err) {
+    console.error(err);
+    pagesEl.innerHTML = '';
+    const f = document.createElement('iframe'); f.src = src; f.title = title;
+    pagesEl.append(f);
+    const m = document.createElement('p'); m.className = 'msg';
+    m.innerHTML = UI[lang].fail + ' <a href="' + src + '" target="_blank" rel="noopener">' + UI[lang].open + ' ↗</a>';
+    pagesEl.append(m);
+  }
+}
+function closePdf(){
+  viewer.classList.remove('open'); document.body.classList.remove('lock');
+  renderTok++; if (task) { task.destroy(); task = null; } doc = null; pagesEl.innerHTML = '';
+  if (lastFocus) lastFocus.focus();
+}
+function setZoom(dir){
+  if (!doc) return;
+  const i = ZOOMS.indexOf(zoom) + dir; if (i < 0 || i >= ZOOMS.length) return;
+  zoom = ZOOMS[i]; render();
+}
+viewer.querySelector('.zin').addEventListener('click', () => setZoom(1));
+viewer.querySelector('.zout').addEventListener('click', () => setZoom(-1));
+viewer.querySelector('.vclose').addEventListener('click', closePdf);
+viewer.addEventListener('click', e => { if (e.target === viewer) closePdf(); });
+addEventListener('keydown', e => { if (e.key === 'Escape' && viewer.classList.contains('open')) closePdf(); });
+document.querySelectorAll('[data-pdf]').forEach(b => b.addEventListener('click', () => openPdf(b.dataset.pdf, b.dataset.title)));
+
+/* ---------- internship slides ---------- */
+(async () => {
+  for (const src of SLIDES) {
+    try {
+      const r = await fetch(src, {method:'HEAD', cache:'no-store'});
+      if (r.ok && !(r.headers.get('content-type') || '').includes('text/html')) {
+        document.querySelectorAll('.slides-btn').forEach(b => { b.hidden = false; b.onclick = () => openPdf(src, b.dataset.title); });
+        return;
+      }
+    } catch (e) { /*  */ }
+  }
+})();
+
+setLang('en');
+let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { fitLockups(); if (doc) render(); }, 150); });
+if (document.fonts) document.fonts.ready.then(fitLockups);
+</script>
+</body>
+</html>
