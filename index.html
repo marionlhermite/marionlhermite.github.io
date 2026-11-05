@@ -26,8 +26,6 @@ a:hover{color:#fff}
 .ico{display:block;flex-shrink:0}
 [hidden]{display:none!important}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-/* the lockup letters are drawn from CSS so link previews and search engines don't read "ARION HERMITE" */
-[data-t]::before{content:attr(data-t)}
 .t2,.t3,.t4{margin:0;font-family:'IBM Plex Mono',monospace;font-weight:500}
 .t2{font-size:calc(36px*var(--k));line-height:1.15;letter-spacing:-.02em}
 .t3{font-size:calc(26px*var(--k));line-height:1.2;letter-spacing:-.02em}
@@ -58,13 +56,8 @@ nav{display:flex;align-items:center;gap:clamp(8px,3vw,18px);padding:3px 18px 3px
 
 /* hero */
 .about{display:flex;flex-direction:column;align-items:center;gap:40px;padding:28px var(--pad) 64px}
-.lockup{margin:0;font-weight:400;position:relative;display:block}
-.lockup-in{position:absolute;left:0;top:0;width:1px;height:1px;transform-origin:0 0;font-family:'DotGothic16',monospace;color:var(--chrome);text-shadow:-1px -1px 0 #8E949B,1px -1px 0 #8E949B,-1px 1px 0 #8E949B,1px 1px 0 #8E949B,0 0 18px rgba(165,188,214,.25)}
-.lockup .role{position:absolute;left:164px;top:0;font-size:26px;line-height:1;letter-spacing:1px;white-space:nowrap}
-.lockup .word{position:absolute;font-size:77px;line-height:1;white-space:nowrap}
-.lockup .w2{left:150px;top:171px}
-.lockup .glyph{position:absolute;filter:drop-shadow(1px 0 0 #8E949B) drop-shadow(-1px 0 0 #8E949B) drop-shadow(0 1px 0 #8E949B) drop-shadow(0 -1px 0 #8E949B)}
-.lockup .apos{position:absolute;left:-13.5px;top:9px;width:12.3px;height:14.7px}
+.lockup{margin:0;font-weight:400;display:block;width:100%;text-align:center;line-height:0}
+.lockup img{display:inline-block;width:422px;max-width:100%;height:auto}
 .about-row{width:100%;max-width:1120px;display:flex;align-items:center;gap:40px}
 .branch{display:none;width:124px;height:288px;flex-shrink:0}
 .branch.flip{transform:scaleX(-1)}
@@ -149,6 +142,7 @@ footer small{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--st
   .lang{position:fixed;top:26px;right:24px;z-index:21;padding:0}
   .chip{font-size:16px;min-height:44px}
   .about{gap:56px;padding:72px 24px 88px}
+  .lockup img{width:896px}
   .branch{display:block}
   .about-body{gap:24px}
   .cta{padding:16px 32px 16px 24px;font-size:15px}
@@ -210,13 +204,10 @@ footer small{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--st
 <div class="pane" lang="en" data-lang="en">
 <section id="about-en" class="about">
   <h1 class="lockup">
-    <span class="sr-only">Marion L’Hermite, Biomedical Engineer</span>
-    <span class="lockup-in" aria-hidden="true">
-      <span class="role" data-t="BIOMEDICAL ENGINEER"></span>
-      <img class="glyph" src="assets/letter-m.svg" alt="" style="left:5px;top:39.5px;width:150px;height:110.5px">
-      <span class="word w1" data-t="ARION" style="left:112.5px;top:55px"></span>
-      <span class="word w2"><img class="glyph" src="assets/letter-l.svg" alt="" style="left:-82px;top:-18px;width:132.5px;height:105.5px"><img class="apos" src="assets/apostrophe.svg" alt=""><span data-t="HERMITE"></span></span>
-    </span>
+    <picture>
+      <source media="(min-width:900px)" srcset="assets/lockup-en-desktop.png" width="747" height="198">
+      <img src="assets/lockup-en-mobile.png" width="469" height="307" alt="Biomedical engineer Marion L’Hermite">
+    </picture>
   </h1>
   <div class="about-row">
     <img class="branch" src="assets/branch.svg" alt="">
@@ -264,13 +255,10 @@ footer small{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--st
 <div class="pane" lang="fr" data-lang="fr">
 <section id="about-fr" class="about">
   <h1 class="lockup">
-    <span class="sr-only">Marion L’Hermite, Ingénieure biomédicale</span>
-    <span class="lockup-in" aria-hidden="true">
-      <span class="role" data-t="INGÉNIEURE BIOMÉDICALE"></span>
-      <img class="glyph" src="assets/letter-m.svg" alt="" style="left:5px;top:39.5px;width:150px;height:110.5px">
-      <span class="word w1" data-t="ARION" style="left:112.5px;top:55px"></span>
-      <span class="word w2"><img class="glyph" src="assets/letter-l.svg" alt="" style="left:-82px;top:-18px;width:132.5px;height:105.5px"><img class="apos" src="assets/apostrophe.svg" alt=""><span data-t="HERMITE"></span></span>
-    </span>
+    <picture>
+      <source media="(min-width:900px)" srcset="assets/lockup-fr-desktop.png" width="747" height="198">
+      <img src="assets/lockup-fr-mobile.png" width="469" height="307" alt="Ingénieure biomédicale Marion L’Hermite">
+    </picture>
   </h1>
   <div class="about-row">
     <img class="branch" src="assets/branch.svg" alt="">
@@ -369,23 +357,6 @@ document.querySelectorAll('[data-go]').forEach(a => a.addEventListener('click', 
   glideTo(el.getBoundingClientRect().top + scrollY - document.querySelector('header').offsetHeight - 4);
 }));
 
-/* ---------- name lockup: one line on desktop, two lines on phones ---------- */
-function fitLockups(){
-  const desk = isDesk();
-  document.querySelectorAll('.pane.show .lockup').forEach(h => {
-    const inner = h.querySelector('.lockup-in'), w1 = inner.querySelector('.w1'), w2 = inner.querySelector('.w2');
-    inner.style.transform = 'none';
-    if (desk) { w2.style.left = (112.5 + w1.offsetWidth + 124) + 'px'; w2.style.top = '55px'; }
-    else { w2.style.left = ''; w2.style.top = ''; }
-    const o = inner.getBoundingClientRect(); let w = 0, hh = 0;
-    inner.querySelectorAll('.role,.word,.glyph').forEach(n => { const r = n.getBoundingClientRect(); w = Math.max(w, r.right - o.left); hh = Math.max(hh, r.bottom - o.top); });
-    const avail = document.documentElement.clientWidth - (desk ? 72 : 40);
-    const s = Math.min(desk ? 1.2 : .9, avail / w);
-    inner.style.transform = 'scale(' + s + ')';
-    h.style.width = (w * s) + 'px'; h.style.height = (hh * s) + 'px';
-  });
-}
-
 /* ---------- carousels ---------- */
 const carousels = [];
 document.querySelectorAll('.carousel').forEach(c => {
@@ -435,7 +406,7 @@ function setLang(l){
   v.querySelector('.zout').setAttribute('aria-label', UI[l].zout);
   v.querySelector('.vopen').setAttribute('aria-label', UI[l].open);
   carousels.forEach(st => { st.idx = 0; st.track.scrollLeft = 0; st.c.querySelectorAll('.dot').forEach((d, k) => d.classList.toggle('on', k === 0)); });
-  fitLockups(); onScroll();
+  onScroll();
 }
 document.querySelectorAll('[data-set]').forEach(b => b.addEventListener('click', () => setLang(b.dataset.set)));
 
@@ -535,8 +506,7 @@ document.querySelectorAll('[data-pdf]').forEach(b => b.addEventListener('click',
 })();
 
 setLang('en');
-let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { fitLockups(); if (doc) render(); }, 150); });
-if (document.fonts) document.fonts.ready.then(fitLockups);
+let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { if (doc) render(); }, 150); });
 </script>
 </body>
 </html>
