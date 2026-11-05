@@ -6,12 +6,9 @@
 <title>Marion L’Hermite · Biomedical Engineer</title>
 <meta name="description" content="Portfolio of Marion L’Hermite, biomedical engineer graduated from Télécom SudParis.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://marionlhermite.github.io/">
+<meta property="og:site_name" content="Marion L’Hermite">
 <meta property="og:title" content="Marion L’Hermite · Biomedical Engineer">
 <meta property="og:description" content="Portfolio of Marion L’Hermite, biomedical engineer graduated from Télécom SudParis.">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Marion L’Hermite · Biomedical Engineer">
-<meta name="twitter:description" content="Portfolio of Marion L’Hermite, biomedical engineer graduated from Télécom SudParis.">
 <link rel="icon" href="assets/letter-m.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,6 +25,9 @@ a{color:var(--steel)}
 a:hover{color:#fff}
 .ico{display:block;flex-shrink:0}
 [hidden]{display:none!important}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* the lockup letters are drawn from CSS so link previews and search engines don't read "ARION HERMITE" */
+[data-t]::before{content:attr(data-t)}
 .t2,.t3,.t4{margin:0;font-family:'IBM Plex Mono',monospace;font-weight:500}
 .t2{font-size:calc(36px*var(--k));line-height:1.15;letter-spacing:-.02em}
 .t3{font-size:calc(26px*var(--k));line-height:1.2;letter-spacing:-.02em}
@@ -70,7 +70,7 @@ nav{display:flex;align-items:center;gap:clamp(8px,3vw,18px);padding:3px 18px 3px
 .branch.flip{transform:scaleX(-1)}
 .about-body{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:18px;align-items:flex-start}
 
-/* buttons */
+/* metal buttons */
 .metal{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(180deg,#F6F7F8 0%,#C9CED4 42%,#8E949B 50%,#B9BEC4 58%,#E9ECEF 100%);color:var(--bg);border:1px solid #F4F6F8;box-shadow:inset 0 1px 0 #fff,inset 0 -2px 3px rgba(15,27,45,.18),0 8px 22px rgba(15,27,45,.22);text-shadow:0 1px 0 rgba(255,255,255,.8);text-decoration:none;cursor:pointer;border-radius:999px;font-family:'IBM Plex Mono',monospace;font-weight:500;transition:transform .3s,box-shadow .3s,filter .3s}
 .metal:hover{color:var(--bg);transform:translateY(-2px);filter:brightness(1.08) contrast(1.05);box-shadow:inset 0 1px 0 #fff,0 0 0 1px #fff,0 14px 40px rgba(42,74,117,.28)}
 .metal:active{transform:translateY(0) scale(.98);box-shadow:inset 0 2px 5px rgba(15,27,45,.3),0 4px 10px rgba(15,27,45,.2)}
@@ -99,7 +99,7 @@ li{display:flex;gap:12px;align-items:baseline;font-size:var(--body);line-height:
 li b{font-weight:500}
 .bullet{width:6px;height:6px;border-radius:50%;background:var(--ink);flex-shrink:0;transform:translateY(-2px)}
 
-/* carousel */
+/* carousels: swipe on phones, glides on its own slowly */
 .carousel{display:flex;flex-direction:column;gap:14px}
 .stage{position:relative}
 .track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 calc(-1*var(--pad));padding:0 var(--pad)}
@@ -185,7 +185,6 @@ footer small{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--st
   .viewer .bar .ico{display:block}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
 </style>
 </head>
 <body>
@@ -213,10 +212,10 @@ footer small{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--st
   <h1 class="lockup">
     <span class="sr-only">Marion L’Hermite, Biomedical Engineer</span>
     <span class="lockup-in" aria-hidden="true">
-      <span class="role">BIOMEDICAL ENGINEER</span>
+      <span class="role" data-t="BIOMEDICAL ENGINEER"></span>
       <img class="glyph" src="assets/letter-m.svg" alt="" style="left:5px;top:39.5px;width:150px;height:110.5px">
-      <span class="word w1" style="left:112.5px;top:55px">ARION</span>
-      <span class="word w2"><img class="glyph" src="assets/letter-l.svg" alt="" style="left:-82px;top:-18px;width:132.5px;height:105.5px"><img class="apos" src="assets/apostrophe.svg" alt="">HERMITE</span>
+      <span class="word w1" data-t="ARION" style="left:112.5px;top:55px"></span>
+      <span class="word w2"><img class="glyph" src="assets/letter-l.svg" alt="" style="left:-82px;top:-18px;width:132.5px;height:105.5px"><img class="apos" src="assets/apostrophe.svg" alt=""><span data-t="HERMITE"></span></span>
     </span>
   </h1>
   <div class="about-row">
@@ -233,7 +232,7 @@ footer small{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--st
 <section id="formation-en">
   <div class="sec-head"><img class="orn" src="assets/ornament.svg" alt=""><div class="col"><h2 class="t2">Formation</h2></div></div>
   <div class="block bg-circuit"><div class="col">
-    <div class="hrow"><div class="hl"><h3 class="t3">Telecom SudParis</h3><span class="meta">Graduate school of engineering</span><span class="meta">SEPTEMBER 2023 - JUNE 2026</span></div><div class="loc"><svg aria-hidden="true" viewBox="0 0 9 11" width="18" height="22.0" fill="currentColor" class="ico"><circle cx="2.5" cy="0.5" r=".42"/><circle cx="3.5" cy="0.5" r=".42"/><circle cx="4.5" cy="0.5" r=".42"/><circle cx="5.5" cy="0.5" r=".42"/><circle cx="6.5" cy="0.5" r=".42"/><circle cx="1.5" cy="1.5" r=".42"/><circle cx="2.5" cy="1.5" r=".42"/><circle cx="6.5" cy="1.5" r=".42"/><circle cx="7.5" cy="1.5" r=".42"/><circle cx="0.5" cy="2.5" r=".42"/><circle cx="1.5" cy="2.5" r=".42"/><circle cx="7.5" cy="2.5" r=".42"/><circle cx="8.5" cy="2.5" r=".42"/><circle cx="0.5" cy="3.5" r=".42"/><circle cx="4.5" cy="3.5" r=".42"/><circle cx="8.5" cy="3.5" r=".42"/><circle cx="0.5" cy="4.5" r=".42"/><circle cx="3.5" cy="4.5" r=".42"/><circle cx="4.5" cy="4.5" r=".42"/><circle cx="5.5" cy="4.5" r=".42"/><circle cx="8.5" cy="4.5" r=".42"/><circle cx="0.5" cy="5.5" r=".42"/><circle cx="4.5" cy="5.5" r=".42"/><circle cx="8.5" cy="5.5" r=".42"/><circle cx="0.5" cy="6.5" r=".42"/><circle cx="1.5" cy="6.5" r=".42"/><circle cx="7.5" cy="6.5" r=".42"/><circle cx="8.5" cy="6.5" r=".42"/><circle cx="1.5" cy="7.5" r=".42"/><circle cx="2.5" cy="7.5" r=".42"/><circle cx="6.5" cy="7.5" r=".42"/><circle cx="7.5" cy="7.5" r=".42"/><circle cx="2.5" cy="8.5" r=".42"/><circle cx="3.5" cy="8.5" r=".42"/><circle cx="5.5" cy="8.5" r=".42"/><circle cx="6.5" cy="8.5" r=".42"/><circle cx="3.5" cy="9.5" r=".42"/><circle cx="4.5" cy="9.5" r=".42"/><circle cx="5.5" cy="9.5" r=".42"/><circle cx="4.5" cy="10.5" r=".42"/></svg><span class="meta">Évry-Courcouronnes, France</span></div></div>
+    <div class="hrow"><div class="hl"><h3 class="t3">Telecom SudParis</h3><span class="meta">Generalist engineering school</span><span class="meta">SEPTEMBER 2023 - JUNE 2026</span></div><div class="loc"><svg aria-hidden="true" viewBox="0 0 9 11" width="18" height="22.0" fill="currentColor" class="ico"><circle cx="2.5" cy="0.5" r=".42"/><circle cx="3.5" cy="0.5" r=".42"/><circle cx="4.5" cy="0.5" r=".42"/><circle cx="5.5" cy="0.5" r=".42"/><circle cx="6.5" cy="0.5" r=".42"/><circle cx="1.5" cy="1.5" r=".42"/><circle cx="2.5" cy="1.5" r=".42"/><circle cx="6.5" cy="1.5" r=".42"/><circle cx="7.5" cy="1.5" r=".42"/><circle cx="0.5" cy="2.5" r=".42"/><circle cx="1.5" cy="2.5" r=".42"/><circle cx="7.5" cy="2.5" r=".42"/><circle cx="8.5" cy="2.5" r=".42"/><circle cx="0.5" cy="3.5" r=".42"/><circle cx="4.5" cy="3.5" r=".42"/><circle cx="8.5" cy="3.5" r=".42"/><circle cx="0.5" cy="4.5" r=".42"/><circle cx="3.5" cy="4.5" r=".42"/><circle cx="4.5" cy="4.5" r=".42"/><circle cx="5.5" cy="4.5" r=".42"/><circle cx="8.5" cy="4.5" r=".42"/><circle cx="0.5" cy="5.5" r=".42"/><circle cx="4.5" cy="5.5" r=".42"/><circle cx="8.5" cy="5.5" r=".42"/><circle cx="0.5" cy="6.5" r=".42"/><circle cx="1.5" cy="6.5" r=".42"/><circle cx="7.5" cy="6.5" r=".42"/><circle cx="8.5" cy="6.5" r=".42"/><circle cx="1.5" cy="7.5" r=".42"/><circle cx="2.5" cy="7.5" r=".42"/><circle cx="6.5" cy="7.5" r=".42"/><circle cx="7.5" cy="7.5" r=".42"/><circle cx="2.5" cy="8.5" r=".42"/><circle cx="3.5" cy="8.5" r=".42"/><circle cx="5.5" cy="8.5" r=".42"/><circle cx="6.5" cy="8.5" r=".42"/><circle cx="3.5" cy="9.5" r=".42"/><circle cx="4.5" cy="9.5" r=".42"/><circle cx="5.5" cy="9.5" r=".42"/><circle cx="4.5" cy="10.5" r=".42"/></svg><span class="meta">Évry-Courcouronnes, France</span></div></div>
     <div class="carousel" role="region" aria-label="Telecom SudParis"><div class="stage"><div class="track"><article class="card slide"><h4 class="t4">Imaging &amp; Computer Vision</h4><ul><li><span class="bullet" aria-hidden="true"></span><span><b>Multimedia acquisition and representation</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Image analysis</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Computer vision</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Deep learning</b></span></li></ul></article><article class="card slide"><h4 class="t4">Signal Processing &amp; Communications</h4><ul><li><span class="bullet" aria-hidden="true"></span><span><b>Signal theory</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Digital signal processing</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Communication theory</b></span></li></ul></article><article class="card slide"><h4 class="t4">Physics &amp; Electronics</h4><ul><li><span class="bullet" aria-hidden="true"></span><span><b>Fundamental electronic functions</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Microwave systems</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Fiber-optic communications</b></span></li></ul></article><article class="card slide"><h4 class="t4">Computer Science</h4><ul><li><span class="bullet" aria-hidden="true"></span><span><b>Object-oriented programming (Java)</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Software development</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Systems programming (Bash, C)</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Databases and information systems</b></span></li></ul></article><article class="card slide"><h4 class="t4">Scientific Computing</h4><ul><li><span class="bullet" aria-hidden="true"></span><span><b>Probability and statistics</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Data analysis</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Optimisation</b></span></li><li><span class="bullet" aria-hidden="true"></span><span><b>Numerical methods</b></span></li></ul></article></div><button class="knob kprev" aria-label="Previous" data-step="-1"><span class="face"><span class="tri left"></span></span></button><button class="knob knext" aria-label="Next" data-step="1"><span class="face"><span class="tri"></span></span></button></div><div class="dots"><button class="dot on" data-i="0" aria-label="Show Imaging &amp; Computer Vision"><span></span></button><button class="dot" data-i="1" aria-label="Show Signal Processing &amp; Communications"><span></span></button><button class="dot" data-i="2" aria-label="Show Physics &amp; Electronics"><span></span></button><button class="dot" data-i="3" aria-label="Show Computer Science"><span></span></button><button class="dot" data-i="4" aria-label="Show Scientific Computing"><span></span></button></div></div>
     <a class="curr" href="https://www.calameo.com/read/00532543083ee02ca0237" target="_blank" rel="noopener"><span>See the full curriculum</span><svg aria-hidden="true" viewBox="0 0 8 8" width="12" height="12.0" fill="currentColor" class="ico"><circle cx="3.5" cy="0.5" r=".42"/><circle cx="4.5" cy="0.5" r=".42"/><circle cx="5.5" cy="0.5" r=".42"/><circle cx="6.5" cy="0.5" r=".42"/><circle cx="7.5" cy="0.5" r=".42"/><circle cx="5.5" cy="1.5" r=".42"/><circle cx="6.5" cy="1.5" r=".42"/><circle cx="7.5" cy="1.5" r=".42"/><circle cx="4.5" cy="2.5" r=".42"/><circle cx="5.5" cy="2.5" r=".42"/><circle cx="6.5" cy="2.5" r=".42"/><circle cx="7.5" cy="2.5" r=".42"/><circle cx="3.5" cy="3.5" r=".42"/><circle cx="4.5" cy="3.5" r=".42"/><circle cx="5.5" cy="3.5" r=".42"/><circle cx="7.5" cy="3.5" r=".42"/><circle cx="2.5" cy="4.5" r=".42"/><circle cx="3.5" cy="4.5" r=".42"/><circle cx="4.5" cy="4.5" r=".42"/><circle cx="1.5" cy="5.5" r=".42"/><circle cx="2.5" cy="5.5" r=".42"/><circle cx="3.5" cy="5.5" r=".42"/><circle cx="0.5" cy="6.5" r=".42"/><circle cx="1.5" cy="6.5" r=".42"/><circle cx="2.5" cy="6.5" r=".42"/><circle cx="1.5" cy="7.5" r=".42"/></svg></a>
   </div></div>
@@ -267,10 +266,10 @@ footer small{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--st
   <h1 class="lockup">
     <span class="sr-only">Marion L’Hermite, Ingénieure biomédicale</span>
     <span class="lockup-in" aria-hidden="true">
-      <span class="role">INGÉNIEURE BIOMÉDICALE</span>
+      <span class="role" data-t="INGÉNIEURE BIOMÉDICALE"></span>
       <img class="glyph" src="assets/letter-m.svg" alt="" style="left:5px;top:39.5px;width:150px;height:110.5px">
-      <span class="word w1" style="left:112.5px;top:55px">ARION</span>
-      <span class="word w2"><img class="glyph" src="assets/letter-l.svg" alt="" style="left:-82px;top:-18px;width:132.5px;height:105.5px"><img class="apos" src="assets/apostrophe.svg" alt="">HERMITE</span>
+      <span class="word w1" data-t="ARION" style="left:112.5px;top:55px"></span>
+      <span class="word w2"><img class="glyph" src="assets/letter-l.svg" alt="" style="left:-82px;top:-18px;width:132.5px;height:105.5px"><img class="apos" src="assets/apostrophe.svg" alt=""><span data-t="HERMITE"></span></span>
     </span>
   </h1>
   <div class="about-row">
@@ -349,7 +348,7 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const isDesk = () => matchMedia('(min-width:900px)').matches;
 let lang = 'en';   // the site always opens in English
 
-/* ---------- page scrolling ---------- */
+/* ---------- slow, eased page scrolling ---------- */
 const ease = t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2;
 let pageAnim = 0;
 function glideTo(y){
@@ -449,7 +448,7 @@ function onScroll(){
 }
 addEventListener('scroll', onScroll, {passive:true});
 
-/* ---------- PDF viewer ---------- */
+/* ---------- PDF viewer (pdf.js, bundled in vendor/pdfjs) ---------- */
 const viewer = document.querySelector('.viewer'), pagesEl = viewer.querySelector('.pages');
 let pdfjs = null, doc = null, task = null, zoom = 1, renderTok = 0, lastFocus = null;
 const ZOOMS = [1, 1.5, 2, 3];
@@ -522,7 +521,7 @@ viewer.addEventListener('click', e => { if (e.target === viewer) closePdf(); });
 addEventListener('keydown', e => { if (e.key === 'Escape' && viewer.classList.contains('open')) closePdf(); });
 document.querySelectorAll('[data-pdf]').forEach(b => b.addEventListener('click', () => openPdf(b.dataset.pdf, b.dataset.title)));
 
-/* ---------- internship slides ---------- */
+/* ---------- internship slides: the button shows up only once the PDF is in the repo ---------- */
 (async () => {
   for (const src of SLIDES) {
     try {
@@ -531,7 +530,7 @@ document.querySelectorAll('[data-pdf]').forEach(b => b.addEventListener('click',
         document.querySelectorAll('.slides-btn').forEach(b => { b.hidden = false; b.onclick = () => openPdf(src, b.dataset.title); });
         return;
       }
-    } catch (e) { /*  */ }
+    } catch (e) { /* opened from file:// or offline: keep the button hidden */ }
   }
 })();
 
